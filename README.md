@@ -1,2 +1,2 @@
-# -port
+# Košarka
 Projekt pri OPB
