@@ -11,6 +11,23 @@ debug(True) #za izpise pri razvoju
 def index():
     return('Začetna stran')
 
+@get('/igralci1617')
+def igralci1617():
+    cur = baza.cursor()
+    igralci1617 = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA from igralci_1617")
+    return template('igralci1617.html', igralci1617=igralci1617)
+
+@get('/igralci1718')
+def igralci1718():
+    cur = baza.cursor()
+    igralci1718 = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA from igralci_1718")
+    return template('igralci1718.html', igralci1718=igralci1718)
+
+@get('/igralci1819')
+def igralci1819():
+    cur = baza.cursor()
+    igralci1819 = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA from igralci_1819")
+    return template('igralci1819.html', igralci1819=igralci1819)
 
 baza = sqlite3.connect(baza_datoteka, isolation_level=None)
 #Izpis SQL stavkov v terminal(za debugiranje pri razvoju)
