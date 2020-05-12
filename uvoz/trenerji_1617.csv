@@ -1,10 +1,9 @@
-﻿Seasons;;number of years;;Current Season;;;with franchise;;;Career;;;
-Coach;Tm;w/ Franch;Overall;G;W;L;G;W;L;G;W;L;W%
+TRENER;EKIPA;st_let_s_klubom;st_let_kariera;G_sezona;W_sezona;L_sezona;G_s_klubom;W_s_klubom;L_s_klubom;G_kariera;W_kariera;L_kariera;W_pr
 Mike Budenholzer;ATL;4;4;82;43;39;328;189;139;328;189;139;.576
 Brad Stevens;BOS;4;4;82;53;29;328;166;162;328;166;162;.506
-Kenny Atkinson;BRK;1;1;82;20;62;82;20;62;82;20;62;.244
+Kenny Atkinson;BKN;1;1;82;20;62;82;20;62;82;20;62;.244
 Fred Hoiberg;CHI;2;2;82;41;41;164;83;81;164;83;81;.506
-Steve Clifford;CHO;4;4;82;36;46;328;160;168;328;160;168;.488
+Steve Clifford;CHA;4;4;82;36;46;328;160;168;328;160;168;.488
 Tyronn Lue;CLE;2;2;82;51;31;123;78;45;123;78;45;.634
 Rick Carlisle;DAL;9;15;82;33;49;722;413;309;1214;694;520;.572
 Mike Malone;DEN;2;4;82;40;42;164;73;91;270;112;158;.415
@@ -23,7 +22,7 @@ Jeff Hornacek;NYK;1;4;82;31;51;82;31;51;295;132;163;.447
 Billy Donovan;OKC;2;2;82;47;35;164;102;62;164;102;62;.622
 Frank Vogel;ORL;1;7;82;29;53;82;29;53;513;279;234;.544
 Brett Brown;PHI;4;4;82;28;54;328;75;253;328;75;253;.229
-Earl Watson;PHO;2;2;82;24;58;115;33;82;115;33;82;.287
+Earl Watson;PHX;2;2;82;24;58;115;33;82;115;33;82;.287
 Terry Stotts;POR;5;9;82;41;41;410;223;187;693;338;355;.488
 Dave Joerger;SAC;1;4;82;32;50;82;32;50;328;179;149;.546
 Gregg Popovich;SAS;21;21;82;61;21;1656;1150;506;1656;1150;506;.694
