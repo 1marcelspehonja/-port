@@ -58,3 +58,20 @@ CREATE TABLE IF NOT EXISTS igralci_1819(
   ,DVA      NUMERIC(5,3) NOT NULL
   ,TRI      NUMERIC(5,3) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS trenerji_1617(
+   TRENER          VARCHAR(24) NOT NULL PRIMARY KEY
+  ,EKIPA           VARCHAR(3) NOT NULL
+  ,st_let_s_klubom INTEGER  NOT NULL
+  ,st_let_kariera  INTEGER  NOT NULL
+  ,G_sezona        INTEGER  NOT NULL
+  ,W_sezona        INTEGER  NOT NULL
+  ,L_sezona        INTEGER  NOT NULL
+  ,G_s_klubom      INTEGER  NOT NULL
+  ,W_s_klubom      INTEGER  NOT NULL
+  ,L_s_klubom      INTEGER  NOT NULL
+  ,G_kariera       INTEGER  NOT NULL
+  ,W_kariera       INTEGER  NOT NULL
+  ,L_kariera       INTEGER  NOT NULL
+  ,W_pr            NUMERIC(5,3) NOT NULL
+);

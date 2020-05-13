@@ -29,6 +29,12 @@ def igralci1819():
     igralci1819 = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA from igralci_1819")
     return template('igralci1819.html', igralci1819=igralci1819)
 
+@get('/trenerji1617')
+def trenerji1617():
+    cur = baza.cursor()
+    trenerji1617 = cur.execute("SELECT TRENER,EKIPA,st_let_kariera,G_sezona,W_sezona,L_sezona from trenerji_1617")
+    return template('trenerji1617.html', trenerji1617=trenerji1617)
+
 baza = sqlite3.connect(baza_datoteka, isolation_level=None)
 #Izpis SQL stavkov v terminal(za debugiranje pri razvoju)
 baza.set_trace_callback(print)

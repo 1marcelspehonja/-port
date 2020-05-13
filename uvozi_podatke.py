@@ -24,3 +24,4 @@ with sqlite3.connect(baza_datoteka) as baza:
      uvoziSQL(cur,'uvoz/igralci_1617.sql')
      uvoziSQL(cur,'uvoz/igralci_1718.sql')
      uvoziSQL(cur,'uvoz/igralci_1819.sql') 
+     uvoziSQL(cur,'uvoz/trenerji_1617.sql')
