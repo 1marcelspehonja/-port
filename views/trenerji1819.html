@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Trenerji</title>
+</head>
+<body>
+  <h2>Trenerji v sezoni 18/19</h2>
+
+  <table cellpadding="0" cellspacing="0" border="1">
+  <tr>
+     <th>Ime in priimek</th>
+     <th>Ekipa</th>
+     <th>Število let kariera</th>
+     <th>Tekme v sezoni</th>
+     <th>Zmage v sezoni</th>
+     <th>Porazi v sezoni</th>
+  </tr>
+  %for (TRENER,EKIPA,st_let_kariera,G_sezona,W_sezona,L_sezona) in trenerji1819:
+    <tr>
+       <td>{{TRENER}}</td>
+       <td>{{EKIPA}}</td>
+       <td>{{st_let_kariera}}</td>
+       <td>{{G_sezona}}</td>
+       <td>{{W_sezona}}</td>
+       <td>{{L_sezona}}</td>
+    </tr>
+  %end
+  </table>
+
+</body>
+</html>
