@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS igralci_1819(
 );
 
 CREATE TABLE IF NOT EXISTS trenerji_1617(
-   TRENER          VARCHAR(24) NOT NULL PRIMARY KEY
+   TRENER          VARCHAR(16) NOT NULL PRIMARY KEY
   ,EKIPA           VARCHAR(3) NOT NULL
   ,st_let_s_klubom INTEGER  NOT NULL
   ,st_let_kariera  INTEGER  NOT NULL
@@ -73,5 +73,57 @@ CREATE TABLE IF NOT EXISTS trenerji_1617(
   ,G_kariera       INTEGER  NOT NULL
   ,W_kariera       INTEGER  NOT NULL
   ,L_kariera       INTEGER  NOT NULL
-  ,W_pr            NUMERIC(5,3) NOT NULL
+  ,W_pr            NUMERIC(4,3) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS trenerji_1718(
+   TRENER          VARCHAR(16) NOT NULL PRIMARY KEY
+  ,EKIPA           VARCHAR(3) NOT NULL
+  ,st_let_s_klubom INTEGER  NOT NULL
+  ,st_let_kariera  INTEGER  NOT NULL
+  ,G_sezona        INTEGER  NOT NULL
+  ,W_sezona        INTEGER  NOT NULL
+  ,L_sezona        INTEGER  NOT NULL
+  ,G_s_klubom      INTEGER  NOT NULL
+  ,W_s_klubom      INTEGER  NOT NULL
+  ,L_s_klubom      INTEGER  NOT NULL
+  ,G_kariera       INTEGER  NOT NULL
+  ,W_kariera       INTEGER  NOT NULL
+  ,L_kariera       INTEGER  NOT NULL
+  ,W_pr            NUMERIC(4,3) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS trenerji_1819(
+   TRENER          VARCHAR(16) NOT NULL PRIMARY KEY
+  ,EKIPA           VARCHAR(3) NOT NULL
+  ,st_let_s_klubom INTEGER  NOT NULL
+  ,st_let_kariera  INTEGER  NOT NULL
+  ,G_sezona        INTEGER  NOT NULL
+  ,W_sezona        INTEGER  NOT NULL
+  ,L_sezona        INTEGER  NOT NULL
+  ,G_s_klubom      INTEGER  NOT NULL
+  ,W_s_klubom      INTEGER  NOT NULL
+  ,L_s_klubom      INTEGER  NOT NULL
+  ,G_kariera       INTEGER  NOT NULL
+  ,W_kariera       INTEGER  NOT NULL
+  ,L_kariera       INTEGER  NOT NULL
+  ,W_pr            NUMERIC(4,3) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS sponzorji_1617(
+   Ime_ekipe        VARCHAR(22) NOT NULL 
+  ,Kratica          VARCHAR(3) NOT NULL PRIMARY KEY
+  ,Sponzor_na_dresu VARCHAR(30)
+);
+
+CREATE TABLE IF NOT EXISTS sponzorji_1718(
+   Ime_ekipe        VARCHAR(22) NOT NULL 
+  ,Kratica          VARCHAR(3) NOT NULL PRIMARY KEY
+  ,Sponzor_na_dresu VARCHAR(27)
+);
+
+CREATE TABLE IF NOT EXISTS sponzorji_1819(
+   Ime_ekipe        VARCHAR(22) NOT NULL
+  ,Kratica          VARCHAR(3) NOT NULL PRIMARY KEY
+  ,Sponzor_na_dresu VARCHAR(27)
 );
