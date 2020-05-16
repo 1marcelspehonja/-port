@@ -7,9 +7,16 @@ baza_datoteka = 'sport.db'
 #Poročila o napakah
 debug(True) #za izpise pri razvoju
 
+#Mapa za statične vire
+static_dir = "./static"
+
+@route("/static/<filename:path>")
+def static(filename):
+    return static_file(filename, root=static_dir)
+
 @get('/')
-def index():
-    return('Začetna stran')
+def izberileto():
+    return template('zacetna.html')
 
 @get('/igralci1617')
 def igralci1617():

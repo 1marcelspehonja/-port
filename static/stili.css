@@ -1,0 +1,17 @@
+h2 {
+    color: blue;
+}
+
+body {
+    font-family: Arial;
+}
+
+.zaokrozeni-vogali {
+    border-radius: 4px;
+}
+
+.orodna-vrstica {
+    color: rgb(53, 175, 53);
+    display: inline-block;
+    background-color: grey;
+}

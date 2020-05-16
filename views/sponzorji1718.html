@@ -1,24 +1,24 @@
 <html>
-<head>
-  <title>Sponzorji</title>
-</head>
-<body>
-  <h2>Glavni sponzorji ekip v sezoni 17/18</h2>
+  <head>
+    <title>Sponzorji</title>
+  </head>
+  <body>
+    <h2>Glavni sponzorji ekip v sezoni 17/18</h2>
 
-  <table cellpadding="0" cellspacing="0" border="1">
-  <tr>
-     <th>Ime ekipe</th>
-     <th>Kratica ekipe</th>
-     <th>Sponzor na dresu</th>
-  </tr>
-  %for (Ime_ekipe,Kratica,Sponzor_na_dresu) in sponzorji1718:
-    <tr>
-       <td>{{Ime_ekipe}}</td>
-       <td>{{Kratica}}</td>
-       <td>{{Sponzor_na_dresu}}</td>
-    </tr>
-  %end
-  </table>
+    <table cellpadding="0" cellspacing="0" border="1">
+      <tr>
+        <th>Ime ekipe</th>
+        <th>Kratica ekipe</th>
+        <th>Sponzor na dresu</th>
+      </tr>
+      %for (Ime_ekipe,Kratica,Sponzor_na_dresu) in sponzorji1718:
+      <tr>
+        <td>{{Ime_ekipe}}</td>
+        <td>{{Kratica}}</td>
+        <td>{{Sponzor_na_dresu}}</td>
+      </tr>
+      %end
+    </table>
 
-</body>
+  </body>
 </html>

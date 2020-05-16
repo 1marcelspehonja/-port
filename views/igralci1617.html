@@ -1,32 +1,27 @@
-<html>
-<head>
-  <title>Igralci</title>
-</head>
-<body>
-  <h2>Igralci v sezoni 16/17</h2>
+% setdefault('napaka','')
+% rebase('base.html', napaka=napaka, naslov='Igralci v sezoni 16/17')
 
-  <table cellpadding="0" cellspacing="0" border="1">
+% include('orodna-vrstica.html')
+<table id="izpis" cellpadding="0" cellspacing="0" border="1">
   <tr>
-     <th>Ime in priimek</th>
-     <th>Ekipa</th>
-     <th>Pozicija</th>
-     <th>Starost</th>
-     <th>Višina</th>
-     <th>Teža</th>
-     <th>Država</th>
+    <th>Ime in priimek</th>
+    <th>Ekipa</th>
+    <th>Pozicija</th>
+    <th>Starost</th>
+    <th>Višina</th>
+    <th>Teža</th>
+    <th>Država</th>
   </tr>
   %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA) in igralci1617:
-    <tr>
-       <td>{{IGRALEC}}</td>
-       <td>{{EKIPA}}</td>
-       <td>{{POZICIJA}}</td>
-       <td>{{STAROST}}</td>
-       <td>{{VISINA}} ft</td>
-       <td>{{TEZA}} lbs</td>
-       <td>{{DRZAVA}}</td>
-    </tr>
+  <tr>
+    <td>{{IGRALEC}}</td>
+    <td>{{EKIPA}}</td>
+    <td>{{POZICIJA}}</td>
+    <td>{{STAROST}}</td>
+    <td>{{VISINA}} ft</td>
+    <td>{{TEZA}} lbs</td>
+    <td>{{DRZAVA}}</td>
+  </tr>
   %end
-  </table>
+</table>
 
-</body>
-</html>
