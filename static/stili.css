@@ -12,7 +12,7 @@ body {
 
 .orodna-vrstica {
     display: flex;
-    background-color: grey;
+    background-color: lightgray;
     padding: 1rem;
     justify-content: space-around;
 }
