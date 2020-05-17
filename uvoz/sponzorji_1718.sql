@@ -16,7 +16,7 @@ INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Memphis 
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Miami Heat','MIA','Ultimate Software');
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Milwaukee Bucks','MIL','Harley Davidson');
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Minnesota Timberwolves','MIN','Fitbit');
-INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('New Orleans Pelicans','NOP','Zatarain’s');
+INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('New Orleans Pelicans','NOP','Zatarain''s');
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('New York Knicks','NYK','Squarespace');
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Oklahoma City Thunder','OKC',NULL);
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Orlando Magic','ORL','Disney');
@@ -28,3 +28,4 @@ INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('San Anto
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Toronto Raptors','TOR','Sun Life');
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Utah Jazz','UTA','Qualtrics (5 for the fight)');
 INSERT INTO sponzorji_1718(Ime_ekipe,Kratica,Sponzor_na_dresu) VALUES ('Washington Wizards','WAS',NULL);
+

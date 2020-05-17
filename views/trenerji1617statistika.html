@@ -1,0 +1,40 @@
+% setdefault('napaka','')
+% rebase('base.html', napaka=napaka, naslov='Statistika v sezoni 16/17')
+
+
+<table id="izpis" cellpadding="0" cellspacing="0" border="1">
+  <tr>
+    <th>Ime in priimek</th>
+    <th>Ekipa</th>
+    <th>Št. let z ekipo</th>
+    <th>Št. let kariere</th>
+    <th>Iger v sezoni</th>
+    <th>Zmage v sezoni</th>
+    <th>Porazi v sezoni</th>
+    <th>Iger s klubom</th>
+    <th>Zmage z ekipo</th>
+    <th>Porazi z ekipo</th>
+    <th>Iger v karieri</th>
+    <th>Zmage v karieri</th>
+    <th>Porazi v karieri</th>
+    <th>Zmage v karieri %</th>
+  </tr>
+  %for (TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr) in trenerji1617statistika:
+  <tr>
+    <td>{{TRENER}}</td>
+    <td>{{EKIPA}}</td>
+    <td>{{st_let_s_klubom}}</td>
+    <td>{{st_let_kariera}}</td>
+    <td>{{G_sezona}}</td>
+    <td>{{W_sezona}}</td>
+    <td>{{L_sezona}}</td>
+    <td>{{G_s_klubom}}</td>
+    <td>{{W_s_klubom}}</td>
+    <td>{{L_s_klubom}}</td>
+    <td>{{G_kariera}}</td>
+    <td>{{W_kariera}}</td>
+    <td>{{L_kariera}}</td>
+    <td>{{W_pr}}</td>
+  </tr>
+  %end
+</table>

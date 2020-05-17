@@ -3,21 +3,27 @@
     <title>Sponzorji</title>
   </head>
   <body>
-    <h2>Glavni sponzorji ekip v sezoni 16/17</h2>
+    <h2>Ekipe v sezoni 16/17</h2>
 
     <table cellpadding="0" cellspacing="0" border="1">
       <tr>
         <th>Ime ekipe</th>
         <th>Kratica ekipe</th>
         <th>Sponzor na dresu</th>
-        <th> Uredi</th>
+        <th>Trener</th>
+        <th>Statistika trenerja</th>
       </tr>
-      %for (Ime_ekipe,Kratica,Sponzor_na_dresu) in sponzorji1617:
+      %for (Ime_ekipe,Kratica,Sponzor_na_dresu,TRENER) in sponzorji1617:
       <tr>
         <td>{{Ime_ekipe}}</td>
         <td>{{Kratica}}</td>
         <td>{{Sponzor_na_dresu}}</td>
-        <td>test</td>
+        <td>{{TRENER}}</td>
+        <td><div>
+            <form action="/sponzorji1617/{{TRENER}}/statistika" method="get">
+              <a href="#" onclick="this.parentElement.submit()">Klik</a>
+            </form>
+          </div></td>
       </tr>
       %end
     </table>

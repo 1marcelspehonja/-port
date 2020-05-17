@@ -11,11 +11,16 @@
     <th>Višina</th>
     <th>Teža</th>
     <th>Država</th>
+    <th>Statistika igralca</th>
   </tr>
   %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA) in igralci1617:
   <tr>
     <td>{{IGRALEC}}</td>
-    <td>{{EKIPA}}</td>
+    <td>{{EKIPA}}<div>
+        <form action="/sponzorji1617" method="get">
+          <a href="#" onclick="this.parentElement.submit()">Proba</a>
+        </form>
+      </div></td>
     <td>{{POZICIJA}}</td>
     <td>{{STAROST}}</td>
     <td>{{VISINA}} ft</td>
@@ -24,11 +29,10 @@
     <td>
       <div>
         <form action="/igralci1617/{{IGRALEC}}/statistika" method="get">
-          <a href="#" onclick="this.parentElement.submit()">Statistika</a>
+          <a href="#" onclick="this.parentElement.submit()">Pojdi</a>
         </form>
       </div>
     </td>
   </tr>
   %end
 </table>
-
