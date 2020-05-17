@@ -8,7 +8,7 @@ def uvoziSQL(cur, datoteka):
         koda = f.read()
         cur.executescript(koda)
 
-#Treba se popravit csv uvoz, ker tale ne dela, syntax error?
+#Treba se popravit csv uvoz, ker tale ne dela, syntax error? 
 # def uvoziCSV(cur, tabela):
 #     with open('uvoz/{0}.csv'.format(tabela)) as csvfile:
 #         podatki = csv.reader(csvfile)
