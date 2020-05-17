@@ -24,6 +24,13 @@ def igralci1617():
     igralci1617 = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA from igralci_1617")
     return template('igralci1617.html', igralci1617=igralci1617)
 
+@get('/igralci1617/<IGRALEC>/statistika')
+def igralci1617_statistika(IGRALEC):
+    cur = baza.cursor()
+    igralci1617statistika = cur.execute("SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI from igralci_1617 WHERE IGRALEC = ?",(IGRALEC, )).fetchall()
+    igralec = igralci1617statistika[0][1] #tole morm zrihtat, k mi v html ne kliče tega?zakaj?
+    return template('igralci1617statistika.html', igralci1617statistika=igralci1617statistika, IGRALEC=IGRALEC)
+
 @get('/igralci1718')
 def igralci1718():
     cur = baza.cursor()

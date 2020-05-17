@@ -1,7 +1,7 @@
 % setdefault('napaka','')
 % rebase('base.html', napaka=napaka, naslov='Igralci v sezoni 16/17')
 
-% include('orodna-vrstica.html')
+% include('orodna-vrstica.html', stolpci='[0,1]')
 <table id="izpis" cellpadding="0" cellspacing="0" border="1">
   <tr>
     <th>Ime in priimek</th>
@@ -21,6 +21,13 @@
     <td>{{VISINA}} ft</td>
     <td>{{TEZA}} lbs</td>
     <td>{{DRZAVA}}</td>
+    <td>
+      <div>
+        <form action="/igralci1617/{{IGRALEC}}/statistika" method="get">
+          <a href="#" onclick="this.parentElement.submit()">Statistika</a>
+        </form>
+      </div>
+    </td>
   </tr>
   %end
 </table>
