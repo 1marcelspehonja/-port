@@ -10,13 +10,13 @@ debug(True) #za izpise pri razvoju
 #Mapa za statične vire
 static_dir = "./static"
 
-###########################################################
-##################### Prva stran ##########################
-###########################################################
-
 @route("/static/<filename:path>")
 def static(filename):
     return static_file(filename, root=static_dir)
+
+###########################################################
+##################### Prva stran ##########################
+###########################################################
 
 @get('/')
 def izberileto():
@@ -38,6 +38,21 @@ def igralci1617statistika(IGRALEC):
     igralci1617statistika = cur.execute("SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI from igralci_1617 WHERE IGRALEC = ?",(IGRALEC, )).fetchall()
     igralec = igralci1617statistika[0][1] #tole morm zrihtat, k mi v html ne kliče tega?zakaj?
     return template('igralci1617statistika.html', igralci1617statistika=igralci1617statistika, IGRALEC=IGRALEC)
+
+@get('/igralci1617/<EKIPA>')
+def igralci1617ekipa(EKIPA):
+    cur = baza.cursor()
+    igralci1617ekipa = cur.execute("""SELECT Ime_ekipe,Kratica,trenerji_1617.TRENER, trenerji_1617.W_sezona, trenerji_1617.L_sezona ,Sponzor_na_dresu from sponzorji_1617
+                                    INNER JOIN trenerji_1617 ON trenerji_1617.EKIPA = sponzorji_1617.Kratica 
+                                    WHERE EKIPA = ?""",(EKIPA, )).fetchall()
+    return template('igralci1617ekipa.html', igralci1617ekipa=igralci1617ekipa, EKIPA=EKIPA)
+
+@get('/igralci1617/<EKIPA>/igralci')
+def igralci1617ekipa1(EKIPA):
+    cur = baza.cursor()
+    igralci1617ekipa1 = cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA from igralci_1617 
+                                    WHERE EKIPA = ?""",(EKIPA, )).fetchall()
+    return template('igralci1617ekipa1.html', igralci1617ekipa1=igralci1617ekipa1, EKIPA=EKIPA)
 
 @get('/igralci1718')
 def igralci1718():
@@ -80,8 +95,8 @@ def trenerji1819():
 @get('/sponzorji1617')
 def sponzorji1617():
     cur = baza.cursor()
-    sponzorji1617 = cur.execute("""SELECT Ime_ekipe,Kratica,Sponzor_na_dresu, trenerji_1617.TRENER from sponzorji_1617
-                                    INNER JOIN trenerji_1617 ON trenerji_1617.EKIPA = sponzorji_1617.Kratica""")
+    sponzorji1617 = cur.execute("""SELECT Ime_ekipe,Kratica,trenerji_1617.TRENER, trenerji_1617.W_sezona, trenerji_1617.L_sezona ,Sponzor_na_dresu from sponzorji_1617
+                                    INNER JOIN trenerji_1617 ON trenerji_1617.EKIPA = sponzorji_1617.Kratica """)
     return template('sponzorji1617.html', sponzorji1617=sponzorji1617)
 
 @get('/sponzorji1617/<TRENER>/statistika')
