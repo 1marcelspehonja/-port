@@ -16,9 +16,12 @@ body {
     padding: 1rem;
     justify-content: space-around;
     align-items: center;
+    margin: 1rem;
+    
 }
 
 #isci {
     line-height: 1.5rem;
     margin-left: 0.5rem;
+    margin-right: 5rem;
 }
