@@ -46,6 +46,12 @@ def ekipe16171617():
                                     INNER JOIN trenerji_1617 ON trenerji_1617.EKIPA = sponzorji_1617.Kratica """)
     return template('ekipe1617.html', ekipe1617=ekipe1617)
 
+@get('/sezona1617/ekipe/trener/<TRENER>')
+def trenerji1617statistika(TRENER):
+    cur = baza.cursor()
+    trenerji1617statistika = cur.execute("SELECT TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr from trenerji_1617 WHERE TRENER = ?",(TRENER, )).fetchall()
+    return template('trenerji1617statistika.html', trenerji1617statistika=trenerji1617statistika, TRENER=TRENER)
+
 @get('/sezona1617/ekipe/<EKIPA>')
 def vsiigralci1617ekipa(EKIPA):
     cur = baza.cursor()
@@ -59,12 +65,6 @@ def sezona1617ekipaigralecstat(EKIPA, IGRALEC):
     sezona1617ekipaigralecstat = cur.execute("SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,EKIPA from igralci_1617 WHERE IGRALEC = ?",(IGRALEC, )).fetchall()
     #igralec = sezona1617ekipaigralecstat[0][1] #tole morm zrihtat, k mi v html ne kliče tega?zakaj?
     return template('sezona1617ekipaigralecstat.html', sezona1617ekipaigralecstat=sezona1617ekipaigralecstat, EKIPA=EKIPA, IGRALEC=IGRALEC)
-
-@get('/sezona1617/ekipe/<TRENER>')
-def trenerji1617statistika(TRENER):
-    cur = baza.cursor()
-    trenerji1617statistika = cur.execute("SELECT TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr from trenerji_1617 WHERE TRENER = ?",(TRENER, )).fetchall()
-    return template('trenerji1617statistika.html', trenerji1617statistika=trenerji1617statistika, TRENER=TRENER)
 
 @get('/igralci1718')
 def igralci1718():
