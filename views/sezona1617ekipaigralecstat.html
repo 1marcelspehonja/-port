@@ -1,0 +1,43 @@
+% setdefault('napaka','')
+% rebase('base.html', napaka=napaka, naslov='Statistika v sezoni 16/17')
+
+<p>
+  Igralec:
+</p>
+<table id="izpis" cellpadding="0" cellspacing="0" border="1">
+  <tr>
+    <th>Ime in priimek</th>
+    <th>GP</th>
+    <th>MPG</th>
+    <th>PPG</th>
+    <th>APG</th>
+    <th>RPG</th>
+    <th>SPG</th>
+    <th>FT%</th>
+    <th>2%</th>
+    <th>3%</th>
+  </tr>
+  %for (IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI, EKIPA) in sezona1617ekipaigralecstat:
+  <tr>
+    <td>{{IGRALEC}}</td>
+    <td>{{GP}}</td>
+    <td>{{MPG}}</td>
+    <td>{{PPG}}</td>
+    <td>{{APG}}</td>
+    <td>{{RPG}}</td>
+    <td>{{SPG}}</td>
+    <td>{{FT}}</td>
+    <td>{{DVA}}</td>
+    <td>{{TRI}}</td>
+  </tr>
+  %end
+</table>
+
+<div class="orodna-vrstica zaokrozeni-vogali">
+  <div style="margin-right: 4rem;">
+    <a href="/sezona1617/ekipe/{{EKIPA}}">Nazaj na {{EKIPA}}</a>
+  </div>  
+  <div>
+      <a href="/">Začetna stran</a>
+  </div>  
+</div>

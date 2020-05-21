@@ -1,7 +1,6 @@
 % setdefault('napaka','')
 % rebase('base.html', napaka=napaka, naslov='Igralci v sezoni 16/17')
 
-% include('orodna-vrstica.html', stolpci='[0,1]')
 <table id="izpis" cellpadding="0" cellspacing="0" border="1">
   <tr>
     <th>Ime in priimek</th>
@@ -12,9 +11,8 @@
     <th>Teža</th>
     <th>Država</th>
     <th>Statistika igralca</th>
-    <th>Ekipa</th>
   </tr>
-  %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA) in igralci1617:
+  %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA) in vsiigralci1617ekipa:
   <tr>
     <td>{{IGRALEC}}</td>
     <td>{{EKIPA}}</td>
@@ -24,19 +22,12 @@
     <td>{{TEZA}} lbs</td>
     <td>{{DRZAVA}}</td>
     <td>
-      <div>
-        <form action="/igralci1617/{{IGRALEC}}/statistika" method="get">
-          <a href="#" onclick="this.parentElement.submit()">Pojdi</a>
-        </form>
-      </div>
-    </td>
-    <td>
-      <div>
-        <form action="/igralci1617/{{EKIPA}}" method="get">
-          <a href="#" onclick="this.parentElement.submit()">Pojdi</a>
-        </form>
-      </div>
-    </td>
+        <div>
+          <form action="/sezona1617/ekipe/{{EKIPA}}/{{IGRALEC}}" method="get">
+            <a href="#" onclick="this.parentElement.submit()">Pojdi</a>
+          </form>
+        </div>
+      </td>
   </tr>
   %end
 </table>

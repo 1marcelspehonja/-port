@@ -1,0 +1,44 @@
+% setdefault('napaka','')
+% rebase('base.html', napaka=napaka, naslov='Igralci v sezoni 16/17')
+
+% include('orodna-vrstica.html', stolpci='[0,1]')
+
+<p>
+  <a href="/sezona1617/ekipe">Lestvica ekip</a>
+</p>
+<table id="izpis" cellpadding="0" cellspacing="0" border="1">
+  <tr>
+    <th>Ime in priimek</th>
+    <th>Ekipa</th>
+    <th>Pozicija</th>
+    <th>Starost</th>
+    <th>Višina</th>
+    <th>Teža</th>
+    <th>Država</th>
+    <th>Statistika igralca</th>
+  </tr>
+  %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA) in sezona1617:
+  <tr>
+    <td>
+      <div>
+        <form action="/sezona1617/{{IGRALEC}}/statistika" method="get">
+          <a href="#" onclick="this.parentElement.submit()">{{IGRALEC}}</a>
+        </form>
+      </div>
+    </td>
+    <td>{{EKIPA}}</td>
+    <td>{{POZICIJA}}</td>
+    <td>{{STAROST}}</td>
+    <td>{{VISINA}} ft</td>
+    <td>{{TEZA}} lbs</td>
+    <td>{{DRZAVA}}</td>
+    <td>
+      <div>
+        <form action="/sezona1617/{{IGRALEC}}/statistika" method="get">
+          <a href="#" onclick="this.parentElement.submit()">Pojdi</a>
+        </form>
+      </div>
+    </td>
+  </tr>
+  %end
+</table>

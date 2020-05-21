@@ -8,6 +8,10 @@ def uvoziSQL(cur, datoteka):
         koda = f.read()
         cur.executescript(koda)
 
+with open("uvoz/sponzorji_1718.sql") as f:
+    koda = f.read()
+    print (koda)
+
 #Treba se popravit csv uvoz, ker tale ne dela, syntax error? 
 # def uvoziCSV(cur, tabela):
 #     with open('uvoz/{0}.csv'.format(tabela)) as csvfile:
