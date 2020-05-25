@@ -4,13 +4,13 @@ import csv
 baza_datoteka = 'sport.db'
 
 def uvoziSQL(cur, datoteka):
-    with open(datoteka) as f:
+    with open(datoteka,encoding="utf8") as f:
         koda = f.read()
         cur.executescript(koda)
 
-with open("uvoz/sponzorji_1718.sql") as f:
-    koda = f.read()
-    print (koda)
+#with open("uvoz/sponzorji_1718.sql") as f:
+    #koda = f.read()
+    #print (koda)
 
 #Treba se popravit csv uvoz, ker tale ne dela, syntax error? 
 # def uvoziCSV(cur, tabela):
