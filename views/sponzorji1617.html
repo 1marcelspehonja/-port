@@ -5,17 +5,33 @@
   <body>
     <h2>Glavni sponzorji ekip v sezoni 16/17</h2>
 
+    <form action="/igralci1617/ekipe/dodaj_sponzorja" method="post">
+        <span>Ekipa:</span> <input name="Ime_ekipe" type="text" />
+        <span>Kratica:</span> <input name="Kratica" type="text" />
+        <span>Sponzor:</span> <input name="Sponzor_na_dresu" type="text" />
+        <input value="Dodaj" type="Submit" />
+      </form>
+
+
+
     <table cellpadding="0" cellspacing="0" border="1">
       <tr>
         <th>Ime ekipe</th>
         <th>Kratica ekipe</th>
         <th>Sponzor na dresu</th>
+        <th>Akcije</th>
       </tr>
       %for (Ime_ekipe,Kratica,Sponzor_na_dresu) in sponzorji1617:
       <tr>
         <td>{{Ime_ekipe}}</td>
         <td>{{Kratica}}</td>
         <td>{{Sponzor_na_dresu}}</td>
+        <td>
+            <form action="/igralci1617/ekipe/uredi/{{Sponzor_na_dresu))" method="get">
+                <input value ="Uredi" type="submit" />
+            </form>
+
+        </td>
       </tr>
       %end
     </table>

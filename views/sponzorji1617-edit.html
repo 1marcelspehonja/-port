@@ -1,0 +1,73 @@
+
+<!-- Obupal sredi dela -->
+
+%rebase('base.html', napaka=napaka, naslov="Uredi sponzorja")
+
+
+<html>
+  <head>
+    <title>Sponzorji</title>
+  </head>
+  <body>
+    <h2>Glavni sponzorji ekip v sezoni 16/17</h2>
+
+    if defined('sponzorji_1617'):
+    <form action="/igralci1617/sponzorji/uredi/{{sponzorji_1617[0]}}" method="post"></form>
+    % else:
+    <form action="/igralci1617/sponzorji/dodaj_sponzorja" method="post"></form>
+    % end
+        <tr>
+            <td>
+                <span>Ekipa:</span>
+            </td>
+            <td>
+                % if defined("sponzorji_1617"):
+                    {{sponzorji_1617[0]}}
+                %else
+                <input name="Ime_ekipe" type="text" />
+                %end
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>Kratica:</span>
+            </td>
+            <td>
+                % if defined("sponzorji_1617"):
+                    {{sponzorji_1617[1]}}
+                %else
+                <input name="Kratica" type="text" />
+                %end
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>Sponzor:</span>
+            </td>
+            <td>
+                <input name="Sponzor_na_dresu" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                % if defined("sponzorji_1617"):
+                <input value="Popravi" type="submit" />
+                % else
+                <input value="Dodaj" type="submit" />
+            </td>
+        </tr>
+
+        
+         
+         
+        
+      </form>
+
+
+   
+
+  </body>
+</html> -->

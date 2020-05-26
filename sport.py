@@ -60,9 +60,13 @@ def dodaj_sponzorja():
     sponzor = request.forms.get("Sponzor_na_dresu")
     cur = baza.cursor()
     cur.execute("INSERT INTO sponzorji_1617 (Ime_ekipe, Kratica, Sponzor_na_dresu) VALUES (?, ?, ?)", (ekipa, kratica, sponzor))
-    redirect('/sezona1617/ekipe')
+    redirect('/sezona1617/sponzorji')
 
-
+@get('/igralci1617/sponzorji/uredi/<Sponzor_na_dresu>')
+def uredi_sponzorja_get(Sponzor_na_dresu):
+    cur = baza.cursor()
+    sponzor1 = cur.execute("SELECT Sponzor_na_dresu FROM sponzorji_1617 WHERE Sponzor_na_dresu =?", (Sponzor_na_dresu)).fetchone()
+    return template("sponzorji1617-edit.hmtl", sponzorji_1617 = sponzorji_1617)
 
 @get('/sezona1617/ekipe/trener/<TRENER>')
 def trenerji1617statistika(TRENER):
