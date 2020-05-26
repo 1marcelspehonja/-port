@@ -46,6 +46,24 @@ def ekipe16171617():
                                     INNER JOIN trenerji_1617 ON trenerji_1617.EKIPA = sponzorji_1617.Kratica """)
     return template('ekipe1617.html', ekipe1617=ekipe1617)
 
+# SAMO TEST??
+@get('/sezona1617/sponzorji')
+def sponzorji1617():
+    cur = baza.cursor()
+    sponzorji1617= cur.execute("SELECT Ime_ekipe, Kratica, Sponzor_na_dresu from sponzorji_1617")
+    return template("sponzorji1617.html", sponzorji1617=sponzorji1617)
+
+@post('/igralci1617/ekipe/dodaj_sponzorja')
+def dodaj_sponzorja():
+    ekipa = request.forms.get("Ime_ekipe")
+    kratica = request.forms.get("Kratica")
+    sponzor = request.forms.get("Sponzor_na_dresu")
+    cur = baza.cursor()
+    cur.execute("INSERT INTO sponzorji_1617 (Ime_ekipe, Kratica, Sponzor_na_dresu) VALUES (?, ?, ?)", (ekipa, kratica, sponzor))
+    redirect('/sezona1617/ekipe')
+
+
+
 @get('/sezona1617/ekipe/trener/<TRENER>')
 def trenerji1617statistika(TRENER):
     cur = baza.cursor()
