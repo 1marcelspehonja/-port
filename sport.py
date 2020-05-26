@@ -65,7 +65,7 @@ def dodaj_sponzorja():
 @get('/igralci1617/sponzorji/uredi/<Sponzor_na_dresu>')
 def uredi_sponzorja_get(Sponzor_na_dresu):
     cur = baza.cursor()
-    sponzor1 = cur.execute("SELECT Sponzor_na_dresu FROM sponzorji_1617 WHERE Sponzor_na_dresu =?", (Sponzor_na_dresu)).fetchone()
+    sponzorji1617 = cur.execute("SELECT Sponzor_na_dresu FROM sponzorji_1617 WHERE Sponzor_na_dresu =?", (Sponzor_na_dresu,)).fetchone()
     return template("sponzorji1617-edit.hmtl", sponzorji_1617 = sponzorji_1617)
 
 @get('/sezona1617/ekipe/trener/<TRENER>')
