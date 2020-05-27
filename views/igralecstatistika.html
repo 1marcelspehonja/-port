@@ -2,7 +2,7 @@
 % rebase('base.html', napaka=napaka, naslov='Statistika v sezoni 16/17')
 
 <p>
-  Igralec: {{sezona1617statistika[0][0]}}
+  Igralec:
 </p>
 <table id="izpis" cellpadding="0" cellspacing="0" border="1">
   <tr>
@@ -17,7 +17,7 @@
     <th>2%</th>
     <th>3%</th>
   </tr>
-  %for (IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI) in sezona1617statistika:
+  %for (IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona) in igralecstatistika:
   <tr>
     <td>{{IGRALEC}}</td>
     <td>{{GP}}</td>
@@ -35,7 +35,7 @@
 
 <div class="orodna-vrstica zaokrozeni-vogali">
   <div style="margin-right: 4rem;">
-    <a href="/sezona1617">Nazaj</a>
+    <a href="/{{Sezona}}">Nazaj na igralce</a>
   </div>  
   <div>
       <a href="/">Začetna stran</a>

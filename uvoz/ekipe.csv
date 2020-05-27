@@ -1,0 +1,91 @@
+"";"ID";"Ime ekipe";"Kratica";"Sponzor na dresu";"Sezona"
+"1";1;"Atlanta Hawks";"ATL";NA;16
+"2";2;"Boston Celtics";"BOS";NA;16
+"3";3;"Brooklyn Nets";"BKN";NA;16
+"4";4;"Charlotte Hornets";"CHA";NA;16
+"5";5;"Chicago Bulls";"CHI";NA;16
+"6";6;"Cleveland Cavaliers";"CLE";NA;16
+"7";7;"Dallas Mavericks";"DAL";NA;16
+"8";8;"Denver Nuggets";"DEN";NA;16
+"9";9;"Detroit Pistons";"DET";NA;16
+"10";10;"Golden State Warriors";"GSW";NA;16
+"11";11;"Houston Rockets";"HOU";NA;16
+"12";12;"Indiana Pacers";"IND";NA;16
+"13";13;"Los Angeles Clippers";"LAC";NA;16
+"14";14;"Los Angeles Lakers";"LAL";NA;16
+"15";15;"Memphis Grizzlies";"MEM";NA;16
+"16";16;"Miami Heat";"MIA";NA;16
+"17";17;"Milwaukee Bucks";"MIL";NA;16
+"18";18;"Minnesota Timberwolves";"MIN";NA;16
+"19";19;"New Orleans Pelicans";"NOP";NA;16
+"20";20;"New York Knicks";"NYK";NA;16
+"21";21;"Oklahoma City Thunder";"OKC";NA;16
+"22";22;"Orlando Magic";"ORL";NA;16
+"23";23;"Philadelphia 76ers";"PHI";NA;16
+"24";24;"Phoenix Suns";"PHX";NA;16
+"25";25;"Portland Trail Blazers";"POR";NA;16
+"26";26;"Sacramento Kings";"SAC";NA;16
+"27";27;"San Antonio Spurs";"SAS";NA;16
+"28";28;"Toronto Raptors";"TOR";NA;16
+"29";29;"Utah Jazz";"UTA";NA;16
+"30";30;"Washington Wizards";"WAS";NA;16
+"31";31;"Atlanta Hawks";"ATL";"Sharecare";17
+"32";32;"Boston Celtics";"BOS";"General Electric";17
+"33";33;"Brooklyn Nets";"BKN";"Infor";17
+"34";34;"Charlotte Hornets";"CHA";"LendingTree";17
+"35";35;"Chicago Bulls";"CHI";NA;17
+"36";36;"Cleveland Cavaliers";"CLE";"Goodyear";17
+"37";37;"Dallas Mavericks";"DAL";NA;17
+"38";38;"Denver Nuggets";"DEN";"Western Union";17
+"39";39;"Detroit Pistons";"DET";"Flagstar Bank";17
+"40";40;"Golden State Warriors";"GSW";"Rakuten";17
+"41";41;"Houston Rockets";"HOU";NA;17
+"42";42;"Indiana Pacers";"IND";NA;17
+"43";43;"Los Angeles Clippers";"LAC";NA;17
+"44";44;"Los Angeles Lakers";"LAL";"Wish";17
+"45";45;"Memphis Grizzlies";"MEM";NA;17
+"46";46;"Miami Heat";"MIA";"Ultimate Software";17
+"47";47;"Milwaukee Bucks";"MIL";"Harley Davidson";17
+"48";48;"Minnesota Timberwolves";"MIN";"Fitbit";17
+"49";49;"New Orleans Pelicans";"NOP";"Zatarain's";17
+"50";50;"New York Knicks";"NYK";"Squarespace";17
+"51";51;"Oklahoma City Thunder";"OKC";NA;17
+"52";52;"Orlando Magic";"ORL";"Disney";17
+"53";53;"Philadelphia 76ers";"PHI";"StubHub";17
+"54";54;"Phoenix Suns";"PHX";NA;17
+"55";55;"Portland Trail Blazers";"POR";NA;17
+"56";56;"Sacramento Kings";"SAC";"Blue Diamond Almonds";17
+"57";57;"San Antonio Spurs";"SAS";NA;17
+"58";58;"Toronto Raptors";"TOR";"Sun Life";17
+"59";59;"Utah Jazz";"UTA";"Qualtrics (5 for the fight)";17
+"60";60;"Washington Wizards";"WAS";NA;17
+"61";61;"Atlanta Hawks";"ATL";"Sharecare";18
+"62";62;"Boston Celtics";"BOS";"General Electric";18
+"63";63;"Brooklyn Nets";"BKN";"Infor";18
+"64";64;"Charlotte Hornets";"CHA";"LendingTree";18
+"65";65;"Chicago Bulls";"CHI";"Zenni Optical";18
+"66";66;"Cleveland Cavaliers";"CLE";"Goodyear";18
+"67";67;"Dallas Mavericks";"DAL";"5Miles";18
+"68";68;"Denver Nuggets";"DEN";"Western Union";18
+"69";69;"Detroit Pistons";"DET";"Flagstar Bank";18
+"70";70;"Golden State Warriors";"GSW";"Rakuten";18
+"71";71;"Houston Rockets";"HOU";"Rokit Phones";18
+"72";72;"Indiana Pacers";"IND";"Motorola";18
+"73";73;"Los Angeles Clippers";"LAC";"Bumble";18
+"74";74;"Los Angeles Lakers";"LAL";"Wish";18
+"75";75;"Memphis Grizzlies";"MEM";"FedEx";18
+"76";76;"Miami Heat";"MIA";"Ultimate Software";18
+"77";77;"Milwaukee Bucks";"MIL";"Harley Davidson";18
+"78";78;"Minnesota Timberwolves";"MIN";"Fitbit";18
+"79";79;"New Orleans Pelicans";"NOP";"Zatarain's";18
+"80";80;"New York Knicks";"NYK";"Squarespace";18
+"81";81;"Oklahoma City Thunder";"OKC";NA;18
+"82";82;"Orlando Magic";"ORL";"Disney";18
+"83";83;"Philadelphia 76ers";"PHI";"StubHub";18
+"84";84;"Phoenix Suns";"PHX";"PayPal";18
+"85";85;"Portland Trail Blazers";"POR";"Biofreeze";18
+"86";86;"Sacramento Kings";"SAC";"Blue Diamond Almonds";18
+"87";87;"San Antonio Spurs";"SAS";"Frost Bank";18
+"88";88;"Toronto Raptors";"TOR";"Sun Life";18
+"89";89;"Utah Jazz";"UTA";"Qualtrics (5 for the fight)";18
+"90";90;"Washington Wizards";"WAS";"Geico";18

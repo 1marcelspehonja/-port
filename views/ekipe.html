@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Sponzorji</title>
+  </head>
+  <body>
+    <h2>Ekipe</h2>
+
+    <div style="margin-right: 4rem;">
+      <a href="/16">Nazaj na igralce</a>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="1">
+      <tr>
+        <th>Ekipa</th>
+        <th>Kratica ekipe</th>
+        <th>Trener</th>
+        <th>W_sezona</th>
+        <th>L_sezona</th>
+        <th>Sponzor</th>
+      </tr>
+      %for (Ime_ekipe,Kratica,TRENER, W_sezona,L_sezona, Sponzor_na_dresu) in ekipe:
+      <tr>
+        <td>{{Ime_ekipe}}</td>
+        <td>{{Kratica}}</td>
+        <td>
+          <div>
+            <form action="/16/ekipe/{{Kratica}}/{{TRENER}}" method="get">
+              <a href="#" onclick="this.parentElement.submit()">{{TRENER}}</a>
+            </form>
+          </div>
+        </td>
+        <td>{{W_sezona}}</td>
+        <td>{{L_sezona}}</td>
+        <td>{{Sponzor_na_dresu}}</td>
+      </tr>
+      %end
+    </table>
+
+  </body>
+</html>

@@ -19,7 +19,7 @@
     <th>Porazi v karieri</th>
     <th>Zmage v karieri %</th>
   </tr>
-  %for (TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr) in trenerji1617statistika:
+  %for (TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr, Sezona) in trenerjistatistika:
   <tr>
     <td>{{TRENER}}</td>
     <td>{{EKIPA}}</td>
@@ -36,14 +36,18 @@
     <td>{{L_kariera}}</td>
     <td>{{W_pr}}</td>
   </tr>
-  %end
 </table>
 
 <div class="orodna-vrstica zaokrozeni-vogali">
   <div style="margin-right: 4rem;">
-    <a href="/sezona1617/ekipe">Nazaj na ekipe</a>
-  </div>  
+    <a href="/{{Sezona}}/ekipe">Nazaj na ekipe</a>
+  </div>
+  <div style="margin-right: 4rem;">
+    <a href="/{{Sezona}}/ekipe/{{EKIPA}}">Nazaj na {{EKIPA}}</a>
+  </div>   
   <div>
       <a href="/">Začetna stran</a>
   </div>  
 </div>
+
+%end

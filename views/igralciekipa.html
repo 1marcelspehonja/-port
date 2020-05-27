@@ -1,5 +1,5 @@
 % setdefault('napaka','')
-% rebase('base.html', napaka=napaka, naslov='Igralci v sezoni 16/17')
+% rebase('base.html', napaka=napaka, naslov='Igralci ekipe')
 
 <table id="izpis" cellpadding="0" cellspacing="0" border="1">
   <tr>
@@ -12,7 +12,7 @@
     <th>Država</th>
     <th>Statistika igralca</th>
   </tr>
-  %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA) in vsiigralci1617ekipa:
+  %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona) in igralciekipa:
   <tr>
     <td>{{IGRALEC}}</td>
     <td>{{EKIPA}}</td>
@@ -34,9 +34,9 @@
 
 <div class="orodna-vrstica zaokrozeni-vogali">
   <div style="margin-right: 4rem;">
-    <a href="/sezona1617/ekipe">Nazaj na ekipe</a>
+    <a href="/{{Sezona}}/ekipe">Nazaj na ekipe</a>
   </div>  
   <div>
       <a href="/">Začetna stran</a>
   </div>  
-</div>
+</div> 
