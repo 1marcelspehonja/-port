@@ -4,4 +4,16 @@ __pycache__
 .Rhistory
 .RData
 .Ruserdata
-
+*~
+*.aux
+*.code-workspace
+*.log
+*.out
+*.pyc
+.DS_Store
+.Rhistory
+.Rproj.user
+.RData
+auth.py
+auth.R
+Thumbs.db
