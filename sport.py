@@ -47,15 +47,15 @@ def izberileto():
 @get('/<Sezona>')#Deluje
 def sezona16(Sezona):
     #cur = baza.cursor()
-    Sezona = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci WHERE Sezona=?",(Sezona,))
-    return template('sezona.html', Sezona=Sezona)
+    Sezona = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci WHERE Sezona=%s",(Sezona,))
+    return rtemplate('sezona.html', Sezona=Sezona)
 
 @get('/<Sezona>/ekipe')#Deluje
 def ekipe(Sezona):
     #cur = baza.cursor()
     ekipe = cur.execute("""SELECT Ime_ekipe,Kratica,trenerji.TRENER, trenerji.W_sezona,trenerji.L_sezona, Sponzor_na_dresu from ekipe
                         INNER JOIN trenerji ON trenerji.EKIPA = ekipe.Kratica
-                        WHERE trenerji.Sezona=? AND ekipe.Sezona=?
+                        WHERE trenerji.Sezona=%s AND ekipe.Sezona=%s
                         ORDER BY W_sezona DESC""",(Sezona,Sezona,))
     return template('ekipe.html', ekipe=ekipe)
 
@@ -63,13 +63,13 @@ def ekipe(Sezona):
 def igralciekipa(Sezona,EKIPA):
     #cur = baza.cursor()
     igralciekipa = cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci
-                                    WHERE EKIPA = ? AND Sezona =?""",(EKIPA, Sezona,))
+                                    WHERE EKIPA = %s AND Sezona =%s""",(EKIPA, Sezona,))
     return template('igralciekipa.html', igralciekipa=igralciekipa, EKIPA=EKIPA, Sezona=Sezona)
 
 @get('/<Sezona>/<IGRALEC>')#Deluje
 def igralecstatistika(Sezona,IGRALEC):
     #cur = baza.cursor()
-    igralecstatistika = cur.execute("""SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona from igralci WHERE IGRALEC=? AND Sezona=?""",(IGRALEC,Sezona,))
+    igralecstatistika = cur.execute("""SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona from igralci WHERE IGRALEC=%s AND Sezona=%s""",(IGRALEC,Sezona,))
     return template('igralecstatistika.html', igralecstatistika=igralecstatistika, IGRALEC=IGRALEC, Sezona=Sezona)
 
 
@@ -77,7 +77,7 @@ def igralecstatistika(Sezona,IGRALEC):
 def trenerjistatistika(TRENER,Sezona,EKIPA):
     #cur = baza.cursor()
     trenerjistatistika = cur.execute("""SELECT TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr, Sezona from trenerji
-                                    WHERE TRENER = ? AND Sezona=?""",(TRENER,Sezona )).fetchall()
+                                    WHERE TRENER = %s AND Sezona=%s""",(TRENER,Sezona )).fetchall()
     return template('trenerjistatistika.html', trenerjistatistika=trenerjistatistika)
 
 #Od tukaj naprej Darjan probaval Edit
@@ -106,7 +106,7 @@ def uredi_sponzorja_get(Sponzor_na_dresu):
 
 
 conn = psycopg2.connect(database=auth.db, host=auth.host, user=auth.user, password=auth.password, port=DB_PORT)
-
+conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
 cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
 run(host='localhost', port=SERVER_PORT, reloader=RELOADER)
