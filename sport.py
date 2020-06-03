@@ -1,5 +1,4 @@
 from bottle import get, post, run, request, template, redirect, static_file, debug, route
-import sqlite3
 
 import auth_public as auth
 
@@ -18,9 +17,6 @@ def rtemplate(*largs, **kwargs):
     Izpis predloge s podajanjem spremenljivke ROOT z osnovnim URL-jem.
     """
     return template(ROOT=ROOT, *largs, **kwargs)
-
-#Konfiguracija
-#baza_datoteka = 'sport.db'
 
 #Poročila o napakah
 debug(True) #za izpise pri razvoju
@@ -61,7 +57,7 @@ def ekipe(Sezona):
     ekipe = cur.fetchall()
     return template('ekipe.html', ekipe=ekipe)
 
-@get('/<Sezona>/ekipe/<EKIPA>')#Ne deluje; vrne napačen template?
+@get('/<Sezona>/ekipe/<EKIPA>')#Deluje
 def igralciekipa(Sezona,EKIPA):
     #cur = baza.cursor()
     cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci
@@ -76,7 +72,6 @@ def igralecstatistika(Sezona,IGRALEC):
     igralecstatistika = cur.fetchall()
     return template('igralecstatistika.html', igralecstatistika=igralecstatistika, IGRALEC=IGRALEC, Sezona=Sezona)
 
-
 @get('/<Sezona>/ekipe/<EKIPA>/<TRENER>')#Deluje
 def trenerjistatistika(TRENER,Sezona,EKIPA):
     #cur = baza.cursor()
@@ -88,13 +83,13 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 #Od tukaj naprej Darjan probaval Edit
 
 # SAMO TEST??
-@get('/sezona1617/sponzorji')
+"""@get('/sezona1617/sponzorji')
 def sponzorji1617():
     #cur = baza.cursor()
     sponzorji1617= cur.execute("SELECT Ime_ekipe, Kratica, Sponzor_na_dresu from sponzorji_1617")
     return template("sponzorji1617.html", sponzorji1617=sponzorji1617)
 
-"""@post('/igralci1617/ekipe/dodaj_sponzorja')
+@post('/igralci1617/ekipe/dodaj_sponzorja')
 def dodaj_sponzorja():
     ekipa = request.forms.get("Ime_ekipe")
     kratica = request.forms.get("Kratica")
@@ -115,13 +110,3 @@ conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
 cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
 run(host='localhost', port=SERVER_PORT, reloader=RELOADER)
-
-#baza = sqlite3.connect(baza_datoteka, isolation_level=None)
-#Izpis SQL stavkov v terminal(za debugiranje pri razvoju)
-#baza.set_trace_callback(print)
-#Zapoved upoštevanja omejitev FOREIGN KEY
-#cur = baza.cursor()
-#cur.execute("PRAGMA foreign_keys = ON;")
-
-#Reloader nam olajša razvoj, ker osvežuje sproti
-#run(host='localhost', port=8080, reloader=True)
