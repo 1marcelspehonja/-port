@@ -47,37 +47,42 @@ def izberileto():
 @get('/<Sezona>')#Deluje
 def sezona16(Sezona):
     #cur = baza.cursor()
-    Sezona = cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci WHERE Sezona=%s",(Sezona,))
+    cur.execute("SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci WHERE Sezona=%s",(Sezona,))
+    Sezona = cur.fetchall()
     return rtemplate('sezona.html', Sezona=Sezona)
 
 @get('/<Sezona>/ekipe')#Deluje
 def ekipe(Sezona):
     #cur = baza.cursor()
-    ekipe = cur.execute("""SELECT Ime_ekipe,Kratica,trenerji.TRENER, trenerji.W_sezona,trenerji.L_sezona, Sponzor_na_dresu from ekipe
+    cur.execute("""SELECT Ime_ekipe,Kratica,trenerji.TRENER, trenerji.W_sezona,trenerji.L_sezona, Sponzor_na_dresu from ekipe
                         INNER JOIN trenerji ON trenerji.EKIPA = ekipe.Kratica
                         WHERE trenerji.Sezona=%s AND ekipe.Sezona=%s
                         ORDER BY W_sezona DESC""",(Sezona,Sezona,))
+    ekipe = cur.fetchall()
     return template('ekipe.html', ekipe=ekipe)
 
 @get('/<Sezona>/ekipe/<EKIPA>')#Ne deluje; vrne napačen template?
 def igralciekipa(Sezona,EKIPA):
     #cur = baza.cursor()
-    igralciekipa = cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci
+    cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci
                                     WHERE EKIPA = %s AND Sezona =%s""",(EKIPA, Sezona,))
+    igralciekipa = cur.fetchall()
     return template('igralciekipa.html', igralciekipa=igralciekipa, EKIPA=EKIPA, Sezona=Sezona)
 
 @get('/<Sezona>/<IGRALEC>')#Deluje
 def igralecstatistika(Sezona,IGRALEC):
     #cur = baza.cursor()
-    igralecstatistika = cur.execute("""SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona from igralci WHERE IGRALEC=%s AND Sezona=%s""",(IGRALEC,Sezona,))
+    cur.execute("""SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona from igralci WHERE IGRALEC=%s AND Sezona=%s""",(IGRALEC,Sezona,))
+    igralecstatistika = cur.fetchall()
     return template('igralecstatistika.html', igralecstatistika=igralecstatistika, IGRALEC=IGRALEC, Sezona=Sezona)
 
 
 @get('/<Sezona>/ekipe/<EKIPA>/<TRENER>')#Deluje
 def trenerjistatistika(TRENER,Sezona,EKIPA):
     #cur = baza.cursor()
-    trenerjistatistika = cur.execute("""SELECT TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr, Sezona from trenerji
-                                    WHERE TRENER = %s AND Sezona=%s""",(TRENER,Sezona )).fetchall()
+    cur.execute("""SELECT TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr, Sezona from trenerji
+                                    WHERE TRENER = %s AND Sezona=%s""",(TRENER,Sezona ))
+    trenerjistatistika = cur.fetchall()
     return template('trenerjistatistika.html', trenerjistatistika=trenerjistatistika)
 
 #Od tukaj naprej Darjan probaval Edit
