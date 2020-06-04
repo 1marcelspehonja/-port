@@ -50,12 +50,13 @@ def sezona16(Sezona):
 @get('/<Sezona>/ekipe')#Deluje
 def ekipe(Sezona):
     #cur = baza.cursor()
-    cur.execute("""SELECT Ime_ekipe,Kratica,trenerji.TRENER, trenerji.W_sezona,trenerji.L_sezona, Sponzor_na_dresu from ekipe
+    cur.execute("""SELECT ekipe.ID,Ime_ekipe,Kratica,trenerji.TRENER, trenerji.W_sezona,trenerji.L_sezona, Sponzor_na_dresu from ekipe
                         INNER JOIN trenerji ON trenerji.EKIPA = ekipe.Kratica
                         WHERE trenerji.Sezona=%s AND ekipe.Sezona=%s
                         ORDER BY W_sezona DESC""",(Sezona,Sezona,))
     ekipe = cur.fetchall()
     return template('ekipe.html', ekipe=ekipe)
+#Darjan: med editanjem dodana napaka= napaka, če bo potrebno pri urejanju (verjetno ne)
 
 @get('/<Sezona>/ekipe/<EKIPA>')#Deluje
 def igralciekipa(Sezona,EKIPA):
@@ -81,6 +82,14 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
     return template('trenerjistatistika.html', trenerjistatistika=trenerjistatistika)
 
 #Od tukaj naprej Darjan probaval Edit
+
+@get('/<Sezona>/ekipe/uredi>')
+def uredi_sponzorja():
+    return template('ekipe-edit.html')
+
+
+
+
 
 # SAMO TEST??
 """@get('/sezona1617/sponzorji')

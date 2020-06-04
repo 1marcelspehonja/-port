@@ -1,5 +1,7 @@
 %from bottle import request
 
+
+
 <html>
   <head>
     <title>Sponzorji</title>
@@ -13,15 +15,18 @@
 
     <table cellpadding="0" cellspacing="0" border="1">
       <tr>
+        <th>ID</th>
         <th>Ekipa</th>
         <th>Kratica ekipe</th>
         <th>Trener</th>
         <th>W_sezona</th>
         <th>L_sezona</th>
         <th>Sponzor</th>
+        <th>Akcije</th>        
       </tr>
-      %for (Ime_ekipe,Kratica,TRENER, W_sezona,L_sezona, Sponzor_na_dresu) in ekipe:
+      %for (ID,Ime_ekipe,Kratica,TRENER, W_sezona,L_sezona, Sponzor_na_dresu) in ekipe:
       <tr>
+        <td>{{ID}}</td>
         <td>{{Ime_ekipe}}</td>
         <td>
           <div>
@@ -40,6 +45,13 @@
         <td>{{W_sezona}}</td>
         <td>{{L_sezona}}</td>
         <td>{{Sponzor_na_dresu}}</td>
+        <td>
+          <div class ="akcije">
+            <form action="/sezona/ekipe/uredi/{{ID}}" method="get" class="akcija">
+              <a href="#" onclick="this.parentElement.submit()">Uredi</a>
+            </form>
+          </div>
+        </td>
       </tr>
       %end
     </table>
