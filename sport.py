@@ -83,10 +83,10 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 
 #Od tukaj naprej Darjan probaval Edit
 
-@get('/<Sezona>/ekipe/uredi>')
+@get('/<Sezona>/ekipe/uredi/<ID>')
 def uredi_sponzorja():
+    cur = baza.cursor()
     return template('ekipe-edit.html')
-
 
 
 
