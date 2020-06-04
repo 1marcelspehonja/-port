@@ -83,11 +83,14 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 
 #Od tukaj naprej Darjan probaval Edit
 
-@get('/<Sezona>/ekipe/uredi/<ID>')
-def uredi_sponzorja():
-    cur = baza.cursor()
-    return template('ekipe-edit.html')
+@get('/ekipe/uredi/<ID>')
+def uredi_sponzorja(ID):
+    #cur = baza.cursor()
+    ekipe = cur.execute("SELECT ID, Sponzor_na_dresu FROM ekipe WHERE ID=?", (ID)).fetchone()
+    return template('ekipe-edit.html', ekipe=ekipe)
 
+#Problem verjetno, ker ID je integer, program pa gleda kot string?
+#Poskušam zamenjati vse pojavitve ID s kratico, ne dela
 
 
 

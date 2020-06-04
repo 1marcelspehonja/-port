@@ -2,8 +2,7 @@
 
 <!-- Že prej nek problem:
 InvalidTextRepresentation('invalid input syntax for integer: "sezona"\nLINE 2: ...                     WHERE TRENER = \'10\' AND Sezona=\'sezona\'\n                                                               ^\n') -->
-
-<!-- %setdefault('naslov', 'Uredi sponzorje')
+%rebase('base.html',naslov= 'Uredi sponzorja')
 
 
 <form action="/<Sezona>/ekipe/uredi/{{ID}" method="post"> -->
@@ -12,4 +11,31 @@ InvalidTextRepresentation('invalid input syntax for integer: "sezona"\nLINE 2: .
 <!-- </form> -->
 
 
-<form action="/<Sezona>/ekipe/uredi" method="post">
+<form action="/<Sezona>/ekipe/uredi/{{ekipe[0]}}" method="post">
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <span>ID: (zaenkrat)</span>
+            </td>
+            <td>
+                {{ekipe[0]}}
+            </td>
+        </tr>
+        <tr>
+           <td>
+               Sponzor:
+            </td>
+            <td>
+                <input name="Sponzor_na_dresu" type="text" value="{{ekipe[3]}}" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input value="Uredi" type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>
