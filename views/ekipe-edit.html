@@ -1,7 +1,5 @@
 <!-- 21min pri V -->
 
-<!-- Že prej nek problem:
-InvalidTextRepresentation('invalid input syntax for integer: "sezona"\nLINE 2: ...                     WHERE TRENER = \'10\' AND Sezona=\'sezona\'\n                                                               ^\n') -->
 %rebase('base.html',naslov= 'Uredi sponzorja')
 %from bottle import request
 
@@ -16,18 +14,27 @@ InvalidTextRepresentation('invalid input syntax for integer: "sezona"\nLINE 2: .
     <table cellpadding="0" cellspacing="0" border="0">
         <tr>
             <td>
-                <span>ID: </span>
+                <span>Ekipa: </span>
             </td>
             <td>
-                {{ekipe[0]}}
+                {{ekipe[1]}}
             </td>
         </tr>
+        <tr>
+            <td>
+                <span>Sezona: </span>
+            </td>
+            <td>
+                {{ekipe[3]}}
+            </td>
+        </tr>
+        <tr>
         <tr>
            <td>
                Sponzor:
             </td>
             <td>
-                <input name="Sponzor_na_dresu" type="text" value="{{ekipe[1]}}" />
+                <input name="Sponzor_na_dresu" type="text" value="{{ekipe[2]}}" />
             </td>
         </tr>
         <tr>

@@ -22,7 +22,7 @@
         <th>W_sezona</th>
         <th>L_sezona</th>
         <th>Sponzor</th>
-        <th>Akcije</th>        
+        <!-- <th>Akcije</th>         -->
       </tr>
       %for (ID,Ime_ekipe,Kratica,TRENER, W_sezona,L_sezona, Sponzor_na_dresu) in ekipe:
       <tr>
@@ -44,13 +44,13 @@
         </td>
         <td>{{W_sezona}}</td>
         <td>{{L_sezona}}</td>
-        <td>{{Sponzor_na_dresu}}</td>
-        <td>
-          <div>
+        <td>{{Sponzor_na_dresu}}
+        
+          
             <form action="/ekipe/uredi/{{ID}}" method="get"> 
               <input value="Uredi" type="submit" />
             </form>
-          </div>
+          
         </td>
       </tr>
       %end

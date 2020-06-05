@@ -86,7 +86,7 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 @get('/ekipe/uredi/<ID>')
 def uredi_sponzorja(ID):
     #cur = baza.cursor()
-    cur.execute("SELECT ID, Sponzor_na_dresu FROM ekipe WHERE ID=%s", (ID,))
+    cur.execute("SELECT ID,Ime_ekipe,Sponzor_na_dresu, Sezona FROM ekipe WHERE ID=%s", (ID,))
     ekipe = cur.fetchone()
     return template('ekipe-edit.html', ekipe=ekipe)
 
