@@ -90,32 +90,8 @@ def uredi_sponzorja(ID):
     ekipe = cur.fetchone()
     return template('ekipe-edit.html', ekipe=ekipe)
 
-#Problem verjetno, ker ID je integer, program pa gleda kot string?
-#Poskušam zamenjati vse pojavitve ID s kratico, ne dela
 
-
-
-# SAMO TEST??
-"""@get('/sezona1617/sponzorji')
-def sponzorji1617():
-    #cur = baza.cursor()
-    sponzorji1617= cur.execute("SELECT Ime_ekipe, Kratica, Sponzor_na_dresu from sponzorji_1617")
-    return template("sponzorji1617.html", sponzorji1617=sponzorji1617)
-
-@post('/igralci1617/ekipe/dodaj_sponzorja')
-def dodaj_sponzorja():
-    ekipa = request.forms.get("Ime_ekipe")
-    kratica = request.forms.get("Kratica")
-    sponzor = request.forms.get("Sponzor_na_dresu")
-    #cur = baza.cursor()
-    cur.execute("INSERT INTO sponzorji_1617 (Ime_ekipe, Kratica, Sponzor_na_dresu) VALUES (?, ?, ?)", (ekipa, kratica, sponzor))
-    redirect('/sezona1617/sponzorji')
-
-@get('/igralci1617/sponzorji/uredi/<Sponzor_na_dresu>')
-def uredi_sponzorja_get(Sponzor_na_dresu):
-    #cur = baza.cursor()
-    sponzorji1617 = cur.execute("SELECT Sponzor_na_dresu FROM sponzorji_1617 WHERE Sponzor_na_dresu =?", (Sponzor_na_dresu,)).fetchone()
-    return template("sponzorji1617-edit.hmtl", sponzorji_1617 = sponzorji_1617)"""
+#####
 
 
 conn = psycopg2.connect(database=auth.db, host=auth.host, user=auth.user, password=auth.password, port=DB_PORT)
