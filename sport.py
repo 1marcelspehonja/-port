@@ -86,7 +86,8 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 @get('/ekipe/uredi/<ID>')
 def uredi_sponzorja(ID):
     #cur = baza.cursor()
-    ekipe = cur.execute("SELECT ID, Sponzor_na_dresu FROM ekipe WHERE ID=?", (ID)).fetchone()
+    cur.execute("SELECT ID, Sponzor_na_dresu FROM ekipe WHERE ID=%s", (ID,))
+    ekipe = cur.fetchone()
     return template('ekipe-edit.html', ekipe=ekipe)
 
 #Problem verjetno, ker ID je integer, program pa gleda kot string?

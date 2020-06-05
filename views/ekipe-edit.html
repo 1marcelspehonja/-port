@@ -3,9 +3,10 @@
 <!-- Že prej nek problem:
 InvalidTextRepresentation('invalid input syntax for integer: "sezona"\nLINE 2: ...                     WHERE TRENER = \'10\' AND Sezona=\'sezona\'\n                                                               ^\n') -->
 %rebase('base.html',naslov= 'Uredi sponzorja')
+%from bottle import request
 
-
-<form action="/<Sezona>/ekipe/uredi/{{ID}" method="post"> -->
+%idekipe = request.url.split("/")[-1]
+<form action="/<Sezona>/ekipe/uredi/{{idekipe}}" method="post">
 
 
 <!-- </form> -->
@@ -26,7 +27,7 @@ InvalidTextRepresentation('invalid input syntax for integer: "sezona"\nLINE 2: .
                Sponzor:
             </td>
             <td>
-                <input name="Sponzor_na_dresu" type="text" value="{{ekipe[3]}}" />
+                <input name="Sponzor_na_dresu" type="text" value="{{ekipe[1]}}" />
             </td>
         </tr>
         <tr>
