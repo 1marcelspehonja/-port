@@ -91,7 +91,74 @@ def uredi_sponzorja(ID):
     return template('ekipe-edit.html', ekipe=ekipe)
 
 
-#####
+###########################################################
+################ Registracija/Prijava #####################
+###########################################################
+
+def hashGesla(s):    #za shranjevanje gesla
+    m = hashlib.sha256()
+    m.update(s.encode("utf-8"))
+    return m.hexdigest()
+
+skrivnost = "kODX3ulHw3ZYRdbIVcp1IfJTDn8iQTH6TFaNBgrSkj"  
+adminGeslo = "1234"
+
+@get('/prijava')
+def prijava_get():
+    return template('prijava.html', napaka=None)
+
+''' @post('/prijava')
+def prijava_post():
+    """Obdelaj izpolnjeno formo za prijavo"""
+    # Uporabniško ime, ki ga je uporabnik vpisal v formo
+    username = request.forms.username
+    # Izračunamo MD5 has gesla, ki ga bomo spravili
+    password = hashGesla(request.forms.password)
+    # Preverimo, ali se je uporabnik pravilno prijavil
+    cur.execute("SELECT * FROM uporabnik WHERE username=%s AND password=%s", [username, password])
+    if cur.fetchone() is None:
+        # Username in geslo se ne ujemata
+        return template("prijava.html",
+                               napaka="Uporabnik ne obstaja",
+                               username=username)
+    else:
+        # Vse je v redu, nastavimo cookie in preusmerimo na glavno stran
+        response.set_cookie('username', username, path='/', secret=skrivnost)
+        redirect("/") '''
+
+@get('/registracija')
+def registracija_get():
+    #cur = baza.cursor()
+    return template('registracija.html', username=None, napaka=None) 
+
+''' @post("/registracija")
+def registracija_post():
+    print('trying to register')
+    username = request.forms.username
+    password1 = request.forms.password1
+    password2 = request.forms.password2
+    adminPassword = request.forms.adminPassword
+    adminCheck = request.forms.adminCheckbox
+
+    if username is None or password1 is None or password2 is None:
+        nastaviSporocilo('Registracija ni možna') 
+        redirect('/registracija')
+        return
+    if len(password) < 4:
+        nastaviSporocilo('Geslo mora imeti vsaj 4 znake.') 
+        redirect('/registracija')
+        return
+    if password1 != password2:
+        nastaviSporocilo('Gesli se ne ujemata.') 
+        redirect('/registracija')
+        return
+
+    zgostitev = hashGesla(password)
+
+    response.set_cookie('username', username, secret=skrivnost)
+    redirect('/') '''
+
+##########################################################################################
 
 
 conn = psycopg2.connect(database=auth.db, host=auth.host, user=auth.user, password=auth.password, port=DB_PORT)

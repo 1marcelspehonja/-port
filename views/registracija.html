@@ -1,0 +1,58 @@
+%rebase('base.html', naslov='Registracija')
+
+<body class="text-center">
+
+  <div class="orodna-vrstica zaokrozeni-vogali">
+    <div>
+        <a href="/">Začetna stran</a>
+    </div>  
+  </div>
+
+<form action="/registracija" method="post" autocomplete="off">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputUsername" class="sr-only">Uporabniško ime</label>
+      <input type="username" id="inputUsername" class="form-control" placeholder="Uporabniško ime" name="username" required
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')"
+        />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword" class="sr-only">Geslo</label>
+      <input type="password" id="inputPassword1" class="form-control" placeholder="Geslo" name="password1" required
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')"
+        />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword" class="sr-only">Ponovno vnesite geslo</label>
+      <input type="password" id="inputPassword2" class="form-control" placeholder="Ponovno vnesite geslo" name="password2" required
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')"
+        />
+    </div>
+  </div>
+  
+  <div class="checkbox mb-3">
+	<label>
+	  <input type="checkbox" value="kot admin" name="adminCheckbox"> Registriraj se kot admin
+    <input type="admin password" id="inputPassword" class="form-control" placeholder="Dodatno admin geslo" name="adminPassword">
+	</label>
+  </div>
+  %if napaka:
+        <div class="alert alert-warning">{{napaka}}</div>
+  %end 
+
+  <div class="form-row col">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Registriraj se!
+    </button>
+  </div>
+  
+</form>
+
+</body>

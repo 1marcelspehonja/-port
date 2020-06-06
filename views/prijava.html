@@ -1,0 +1,53 @@
+%rebase('base.html', naslov='Prijava')
+
+<body class="text-center"></body>
+
+  <div class="orodna-vrstica zaokrozeni-vogali">
+    <div>
+        <a href="/">Začetna stran</a>
+    </div>  
+  </div>
+
+<form action="/prijava" method="post" autocomplete="off">
+  <!-- <h1 class="h3 mb-3 font-weight-normal">Prijava</h1> -->
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputUsername" class="sr-only">Uporabniško ime</label>
+      <input type="username" id="inputUsername" class="form-control" placeholder="Uporabniško ime" name="username" required
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')"
+        />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword" class="sr-only">Geslo</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Geslo" name="password"  required
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')"
+        />
+    </div>
+  </div>
+
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Zapomni si me
+    </label>
+  </div>
+
+  %if napaka:
+        <div class="alert alert-warning">{{napaka}}</div>
+  %end
+
+  <div class="form-row col">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Prijava
+    </button>
+  </div>
+
+  <a class="btn btn-lg btn-primary btn-block" href="/registracija">Registriraj se</a>
+  
+</form>
+</body>
