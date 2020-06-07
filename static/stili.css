@@ -2,9 +2,9 @@ h2 {
     color: blue;
 }
 
-body {
+/* body {
     font-family: Arial;
-}
+} */
 
 .zaokrozeni-vogali {
     border-radius: 4px;
@@ -25,3 +25,11 @@ body {
     margin-left: 0.5rem;
     margin-right: 5rem;
 }
+
+.bg {
+    background-image: url("https://www.vmcdn.ca/f/files/kitchenertoday/images/sports/basketball.jpeg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

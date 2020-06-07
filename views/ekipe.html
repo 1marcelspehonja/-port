@@ -1,21 +1,19 @@
-%from bottle import request
-
-
+% from bottle import request
+% rebase('base.html', naslov='Lestvica ekip')
+%leto = request.url.split("/")[-2]
 
 <html>
   <head>
-    <title>Sponzorji</title>
+    <title>Ekipe</title>
   </head>
   <body>
-    <h2>Ekipe</h2>
-    %leto = request.url.split("/")[-2]
-    <div style="margin-right: 4rem;">
+    
+    <!--<div style="margin-right: 4rem;">
       <a href="/{{leto}}">Nazaj na igralce</a>
-    </div>
+    </div>-->
 
-    <table cellpadding="0" cellspacing="0" border="1">
+    <table class="table table-striped">
       <tr>
-        <th>ID</th>
         <th>Ekipa</th>
         <th>Kratica ekipe</th>
         <th>Trener</th>
@@ -26,7 +24,6 @@
       </tr>
       %for (ID,Ime_ekipe,Kratica,TRENER, W_sezona,L_sezona, Sponzor_na_dresu) in ekipe:
       <tr>
-        <td>{{ID}}</td>
         <td>{{Ime_ekipe}}</td>
         <td>
           <div>
