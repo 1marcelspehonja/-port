@@ -1,12 +1,13 @@
 %rebase('base.html', naslov='Prijava')
+%leto = None
 
 <body class="text-center"></body>
 
-  <div class="orodna-vrstica zaokrozeni-vogali">
+  <!--<div class="orodna-vrstica zaokrozeni-vogali">
     <div>
         <a href="/">Začetna stran</a>
     </div>  
-  </div>
+  </div>-->
 
 <form action="/prijava" method="post" autocomplete="off">
   <!-- <h1 class="h3 mb-3 font-weight-normal">Prijava</h1> -->
@@ -40,14 +41,12 @@
   %if napaka:
         <div class="alert alert-warning">{{napaka}}</div>
   %end
-
-  <div class="form-row col">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">
+<div class="row">
+    <button class="btn btn-lg btn-primary btn-block col" type="submit">
       Prijava
     </button>
-  </div>
 
-  <a class="btn btn-lg btn-primary btn-block" href="/registracija">Registriraj se</a>
-  
+  <button class="btn btn-lg btn-primary btn-block col" href="/registracija">Registriraj se</button>
+ </div> 
 </form>
 </body>

@@ -16,19 +16,23 @@
         <script src="/static/sport.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark text-white">
-            <div class="container">
-                <a class="navbar-brand" href="/">Košarka</a>
-                <a class="nav-item nav-link" href="/{{leto}}">Igralci</a>
-                <a class="nav-item nav-link" href="/{{leto}}/ekipe">Ekipe</a>
-                <a class="nav-item nav-link" href="/">Začetna stran</a>
-                <a class="nav-item nav-link" href="/prijava">Prijava</a>
-                <a class="nav-item nav-link" href="/registracija">Registracija</a>
-            </div>
-        </nav>
+        <div class="p-3 d-flex mx-auto flex-column text-center html body">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">NBA menedžer</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-item nav-link" href="/{{leto}}">Igralci</a>
+                        <a class="nav-item nav-link" href="/{{leto}}/ekipe">Ekipe</a>
+                        <a class="nav-item nav-link" href="/">Domača stran</a>
+                        <a class="nav-item nav-link" href="/prijava">Prijava</a>
+                        <a class="nav-item nav-link" href="/registracija">Registracija</a>
+                    </nav>
+                </div>
+            </header>
+        </div>
         <div class="container">
 
-            <h2>{{naslov}}</h2>
+            <h2 class="p-3">{{naslov}}</h2>
 
             {{!base}}
         </div>

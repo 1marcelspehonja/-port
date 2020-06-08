@@ -1,5 +1,5 @@
 % setdefault('napaka','')
-% rebase('base.html', napaka=napaka, naslov='Statistika v sezoni 16/17')
+% rebase('base.html', napaka=napaka, naslov='Statistika trenerja')
 % from bottle import request
 % leto = request.url.split("/")[-4]
 
@@ -40,16 +40,17 @@
   </tr>
 </table>
 
-<div class="orodna-vrstica zaokrozeni-vogali">
-  <div style="margin-right: 4rem;">
-    <a href="/{{Sezona}}/ekipe">Nazaj na ekipe</a>
+<div class="d-flex justify-content-end py-3">
+  <div style="margin-right: 1rem;">
+    <a href="/{{Sezona}}/ekipe">
+      <button type="button" class="btn btn-outline-secondary">Nazaj na ekipe</button>
+    </a>
   </div>
-  <div style="margin-right: 4rem;">
-    <a href="/{{Sezona}}/ekipe/{{EKIPA}}">Nazaj na {{EKIPA}}</a>
-  </div>   
-  <!--<div>
-      <a href="/">Začetna stran</a>
-  </div>-->  
+  <div>
+    <a href="/{{Sezona}}/ekipe/{{EKIPA}}">
+      <button type="button" class="btn btn-outline-secondary">Nazaj na {{EKIPA}}</button>
+    </a>
+  </div>
 </div>
 
 %end

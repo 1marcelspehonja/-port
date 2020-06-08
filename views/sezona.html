@@ -4,6 +4,7 @@
 % include('orodna-vrstica.html', stolpci='[0,1]')
 
 %from bottle import request
+%leto = request.url.split("/")[-1]
 <!--<%Sezona = bottle.request.url.split("/")[-1]%> 
 <p>
   %leto = request.url.split("/")[-1]
@@ -21,22 +22,23 @@
     <th>Višina</th>
     <th>Teža</th>
     <th>Država</th>
+    <th>Možnosti</th>
   </tr>
   %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona) in Sezona:
   <tr>
-    <td>
-      <div>
-        <form action="/{{Sezona}}/{{IGRALEC}}" method="get">
-          <a href="#" onclick="this.parentElement.submit()">{{IGRALEC}}</a>
-        </form>
-      </div>
-    </td>
+    <td>{{IGRALEC}}</td>
     <td>{{EKIPA}}</td>
     <td>{{POZICIJA}}</td>
     <td>{{STAROST}}</td>
     <td>{{VISINA}} ft</td>
     <td>{{TEZA}} lbs</td>
     <td>{{DRZAVA}}</td>
+    <td><div>
+      <form class="" action="/{{Sezona}}/{{IGRALEC}}" method="get">
+        <a href="#" onclick="this.parentElement.submit()">Statistika
+        </a>
+      </form>
+    </div></td>
   </tr>
   %end
 </table>

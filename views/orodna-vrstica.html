@@ -1,10 +1,16 @@
 % setdefault('stolpci', '[1]')
 
-<div class="row">
-    <div class="col">
-        Išči: <input id="isci" type="text" oninput="isci({{stolpci}})" />
+<div class="row mx-0">
+    <div class="col py-3 d-flex align-items-center">
+        <div class="form-group row mb-0">
+            <label for="isci" class="col-sm-2 col-form-label">Išči:</label>
+            <div class="col-sm-8">
+                <input id="isci" class="form-control" type="text"
+                    oninput="isci({{stolpci}})" />
+            </div>
+        </div>
     </div>
-    <div class="col">
+    <!-- <div class="col">
         <a href="/">Začetna stran</a>
-    </div>
+    </div> -->
 </div>
