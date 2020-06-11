@@ -83,19 +83,25 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 
 #Od tukaj naprej Darjan probaval Edit
 
-@get('/<Sezona>/ekipe/uredi/<ID>')
-def uredi_sponzorja(ID):
+@get('/ekipe/uredi/<ID>')
+def uredi_sponzorja_get(ID):
     #cur = baza.cursor()
-    cur.execute("SELECT ID,Ime_ekipe,Sponzor_na_dresu, Sezona FROM ekipe WHERE ID=%s", (ID,))
+    cur.execute("SELECT ID,Ime_ekipe,Sponzor_na_dresu, Sezona FROM ekipe WHERE ID = %s", (ID,))
     ekipe = cur.fetchone()
     return template('ekipe-edit.html', ekipe=ekipe)
 
-@post('/<Sezona>/ekipe/uredi/<ID>')
-def uredi_sponzorja(ID):
+@post('/ekipe/uredi/<ID>')
+def uredi_sponzorja_post(ID):
     Sponzor_na_dresu = request.forms.Sponzor_na_dresu
     #cur = baza.cursor()
-    cur.execute("UPDATE Sponzor_na_dresu SET Sponzor_na_dresu = %s WHERE ID=%s", (Sponzor_na_dresu,ID))
-    redirect('/<Sezona>/ekipe')
+    cur.execute("UPDATE ekipe SET Sponzor_na_dresu = %s WHERE ID = %s", (Sponzor_na_dresu, ID))
+    if int(ID) <31:
+        redirect('/16/ekipe')
+    elif int(ID) <61:
+        redirect('/17/ekipe')
+    else:
+        redirect('/18/ekipe')
+
 
 
 ###########################################################
