@@ -1,5 +1,5 @@
 from bottle import get, post, run, request, template, redirect, static_file, debug, route
-
+import hashlib
 import auth_public as auth
 
 import psycopg2, psycopg2.extensions, psycopg2.extras
