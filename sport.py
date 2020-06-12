@@ -116,16 +116,32 @@ def hashGesla(s):    #za shranjevanje gesla
 skrivnost = "kODX3ulHw3ZYRdbIVcp1IfJTDn8iQTH6TFaNBgrSkj"  
 adminGeslo = "1234"
 
+''' def get_user():
+    """Poglej cookie in ugotovi, kdo je prijavljeni uporabnik,
+       vrni njegov username in ime. Če ni prijavljen, presumeri
+       na stran za prijavo ali vrni None (advisno od auto_login). """
+    # Dobimo username iz piškotka
+    username = request.get_cookie('username', secret=skrivnost)
+    # Preverimo, ali ta uporabnik obstaja
+    if username is not None:
+        cur.execute("SELECT username FROM uporabnik WHERE username=%s", [username])
+        r = cur.fetchone()
+        if r is not None:
+            # uporabnik obstaja, vrnemo njegove podatke
+            return username
+    # Če pridemo do sem, uporabnik ni prijavljen, naredimo redirect
+    else:
+        return None '''
+
 @get('/prijava')
 def prijava_get():
     return template('prijava.html', napaka=None)
 
-''' @post('/prijava')
+@post('/prijava')
 def prijava_post():
-    """Obdelaj izpolnjeno formo za prijavo"""
     # Uporabniško ime, ki ga je uporabnik vpisal v formo
     username = request.forms.username
-    # Izračunamo MD5 has gesla, ki ga bomo spravili
+    # Izračunamo hash gesla
     password = hashGesla(request.forms.password)
     # Preverimo, ali se je uporabnik pravilno prijavil
     cur.execute("SELECT * FROM uporabnik WHERE username=%s AND password=%s", [username, password])
@@ -135,16 +151,16 @@ def prijava_post():
                                napaka="Uporabnik ne obstaja",
                                username=username)
     else:
-        # Vse je v redu, nastavimo cookie in preusmerimo na glavno stran
+        # Vse OK, nastavimo cookie in preusmerimo na glavno stran
         response.set_cookie('username', username, path='/', secret=skrivnost)
-        redirect("/") '''
+        redirect("/")
 
 @get('/registracija')
 def registracija_get():
     #cur = baza.cursor()
     return template('registracija.html', username=None, napaka=None) 
 
-''' @post("/registracija")
+@post("/registracija")
 def registracija_post():
     print('trying to register')
     username = request.forms.username
@@ -152,7 +168,7 @@ def registracija_post():
     password2 = request.forms.password2
     adminPassword = request.forms.adminPassword
     adminCheck = request.forms.adminCheckbox
-
+    '''
     if username is None or password1 is None or password2 is None:
         nastaviSporocilo('Registracija ni možna') 
         redirect('/registracija')
@@ -167,9 +183,23 @@ def registracija_post():
         return
 
     zgostitev = hashGesla(password)
-
     response.set_cookie('username', username, secret=skrivnost)
     redirect('/') '''
+
+    # Ali ta uporabnik že obstaja?
+    cur.execute("SELECT * FROM uporabnik WHERE username=%s", [username])
+    if cur.fetchone():
+        # Uporabnik že obstaja
+        return template("registracija.html",
+                               username=username,
+                               napaka='To uporabniško ime je že zasedeno.')
+    elif not password1 == password2:
+        # Geslo se ne ujemata
+        return template("registracija.html",
+                               username=username,
+                               napaka='Gesli se ne ujemata.')
+    
+    
 
 ##########################################################################################
 
