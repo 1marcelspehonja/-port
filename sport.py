@@ -73,6 +73,14 @@ def igralecstatistika(Sezona,IGRALEC):
     igralecstatistika = cur.fetchall()
     return template('igralecstatistika.html', igralecstatistika=igralecstatistika, IGRALEC=IGRALEC, Sezona=Sezona)
 
+@get('/<Sezona>/ekipe/uredi/<ID>')
+def uredi_sponzorja_get(ID, Sezona):
+    #cur = baza.cursor()
+    cur.execute("SELECT ID,Ime_ekipe,Sponzor_na_dresu, Sezona FROM ekipe WHERE ID = %s", (ID,))
+    ekipe = cur.fetchone()
+    return template('ekipe-edit.html', ekipe=ekipe)
+
+
 @get('/<Sezona>/ekipe/<EKIPA>/<TRENER>')#Deluje
 def trenerjistatistika(TRENER,Sezona,EKIPA):
     #cur = baza.cursor()
@@ -83,15 +91,8 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 
 #Od tukaj naprej Darjan probaval Edit
 
-@get('/ekipe/uredi/<ID>')
-def uredi_sponzorja_get(ID):
-    #cur = baza.cursor()
-    cur.execute("SELECT ID,Ime_ekipe,Sponzor_na_dresu, Sezona FROM ekipe WHERE ID = %s", (ID,))
-    ekipe = cur.fetchone()
-    return template('ekipe-edit.html', ekipe=ekipe)
-
-@post('/ekipe/uredi/<ID>')
-def uredi_sponzorja_post(ID):
+@post('/<Sezona>/ekipe/uredi/<ID>')
+def uredi_sponzorja_post(ID, Sezona):
     Sponzor_na_dresu = request.forms.Sponzor_na_dresu
     #cur = baza.cursor()
     #cur.execute("UPDATE ekipe SET Sponzor_na_dresu = %s WHERE ID = %s", (Sponzor_na_dresu, ID))
