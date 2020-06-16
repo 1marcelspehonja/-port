@@ -1,52 +1,76 @@
-%rebase('base.html', naslov='Prijava')
-%leto = None
+<!doctype html>
+<html lang="sl" class="bg-secondary text-white">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
 
-<body class="text-center"></body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+    <title>Prijava</title>
+    <link rel="stylesheet" type="text/css" href="{{ROOT}}static/stili.css" />
+    <script src="/static/sport.js"></script>
+  </head>
 
-  <!--<div class="orodna-vrstica zaokrozeni-vogali">
-    <div>
-        <a href="/">Začetna stran</a>
-    </div>  
-  </div>-->
-
-<form action="{{ROOT}}prijava" method="post" autocomplete="off">
-  <!-- <h1 class="h3 mb-3 font-weight-normal">Prijava</h1> -->
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputUsername" class="sr-only">Uporabniško ime</label>
-      <input type="username" id="inputUsername" class="form-control" placeholder="Uporabniško ime" name="username" required
-        oninput="this.setCustomValidity('')"
-        oninvalid="this.setCustomValidity('Obvezno polje')"
-        />
+  <body class="text-center">
+    <div class="p-3 d-flex mx-auto flex-column text-center html body">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">NBA menedžer</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-item nav-link" href="{{ROOT}}">Domača stran</a>
+            <a class="nav-item nav-link" href="{{ROOT}}prijava">Prijava</a>
+            <a class="nav-item nav-link" href="{{ROOT}}registracija">Registracija</a>
+          </nav>
+        </div>
+      </header>
     </div>
+    <div class="container">
+    <h2 class="d-flex justify-content-center display-2">Prijava</h2>
+    <form action="{{ROOT}}prijava" method="post" autocomplete="off">
+      <!-- <h1 class="h3 mb-3 font-weight-normal">Prijava</h1> -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="inputUsername" class="sr-only">Uporabniško ime</label>
+          <input type="username" id="inputUsername" class="form-control"
+            placeholder="Uporabniško ime" name="username" required
+            oninput="this.setCustomValidity('')"
+            oninvalid="this.setCustomValidity('Obvezno polje')"
+            />
+        </div>
+
+
+        <div class="form-group col">
+          <label for="inputPassword" class="sr-only">Geslo</label>
+          <input type="password" id="inputPassword" class="form-control"
+            placeholder="Geslo" name="password" required
+            oninput="this.setCustomValidity('')"
+            oninvalid="this.setCustomValidity('Obvezno polje')"
+            />
+        </div>
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Zapomni si me
+        </label>
+      </div>
+
+      %if napaka:
+      <div class="alert alert-warning">{{napaka}}</div>
+      %end
+      <div class="row">
+        <button class="btn btn-lg btn-primary btn-block col" type="submit">
+          Prijava
+        </button>
+
+        <button class="btn btn-lg btn-primary btn-block col"
+          href="{{ROOT}}registracija">Registriraj se</button>
+      </div>
+    </form>
   </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputPassword" class="sr-only">Geslo</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Geslo" name="password"  required
-        oninput="this.setCustomValidity('')"
-        oninvalid="this.setCustomValidity('Obvezno polje')"
-        />
-    </div>
-  </div>
-
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Zapomni si me
-    </label>
-  </div>
-
-  %if napaka:
-        <div class="alert alert-warning">{{napaka}}</div>
-  %end
-<div class="row">
-    <button class="btn btn-lg btn-primary btn-block col" type="submit">
-      Prijava
-    </button>
-
-  <button class="btn btn-lg btn-primary btn-block col" href="{{ROOT}}registracija">Registriraj se</button>
- </div> 
-</form>
-</body>
+  </body>
+</html>
