@@ -27,14 +27,14 @@
         <td>{{Ime_ekipe}}</td>
         <td>
           <div>
-            <form action="/{{leto}}/ekipe/{{Kratica}}" method="get">
+            <form action="{{ROOT}}{{leto}}/ekipe/{{Kratica}}" method="get">
               <a href="#" onclick="this.parentElement.submit()">{{Kratica}}</a>
             </form>
           </div>
         </td>
         <td>
           <div>
-            <form action="/{{leto}}/ekipe/{{Kratica}}/{{TRENER}}" method="get">
+            <form action="{{ROOT}}{{leto}}/ekipe/{{Kratica}}/{{TRENER}}" method="get">
               <a href="#" onclick="this.parentElement.submit()">{{TRENER}}</a>
             </form>
           </div>
@@ -43,7 +43,7 @@
         <td>{{L_sezona}}</td>
         <td>{{Sponzor_na_dresu}}</td>
         <td>
-          <form  action="/{{leto}}/ekipe/uredi/{{ID}}" method="get"> 
+          <form  action="{{ROOT}}{{leto}}/ekipe/uredi/{{ID}}" method="get"> 
             <input value="Uredi sponzorja" type="submit"/>
           </form>
         </td>    
