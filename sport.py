@@ -55,7 +55,7 @@ def ekipe(Sezona):
                         WHERE trenerji.Sezona=%s AND ekipe.Sezona=%s
                         ORDER BY W_sezona DESC""",(Sezona,Sezona,))
     ekipe = cur.fetchall()
-    return template('ekipe.html', ekipe=ekipe)
+    return rtemplate('ekipe.html', ekipe=ekipe)
 #Darjan: med editanjem dodana napaka= napaka, če bo potrebno pri urejanju (verjetno ne)
 
 @get('/<Sezona>/ekipe/<EKIPA>')#Deluje
@@ -64,21 +64,21 @@ def igralciekipa(Sezona,EKIPA):
     cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci
                                     WHERE EKIPA = %s AND Sezona =%s""",(EKIPA, Sezona,))
     igralciekipa = cur.fetchall()
-    return template('igralciekipa.html', igralciekipa=igralciekipa, EKIPA=EKIPA, Sezona=Sezona)
+    return rtemplate('igralciekipa.html', igralciekipa=igralciekipa, EKIPA=EKIPA, Sezona=Sezona)
 
 @get('/<Sezona>/<IGRALEC>')#Deluje
 def igralecstatistika(Sezona,IGRALEC):
     #cur = baza.cursor()
     cur.execute("""SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona from igralci WHERE IGRALEC=%s AND Sezona=%s""",(IGRALEC,Sezona,))
     igralecstatistika = cur.fetchall()
-    return template('igralecstatistika.html', igralecstatistika=igralecstatistika, IGRALEC=IGRALEC, Sezona=Sezona)
+    return rtemplate('igralecstatistika.html', igralecstatistika=igralecstatistika, IGRALEC=IGRALEC, Sezona=Sezona)
 
 @get('/<Sezona>/ekipe/uredi/<ID>')
 def uredi_sponzorja_get(ID, Sezona):
     #cur = baza.cursor()
     cur.execute("SELECT ID,Ime_ekipe,Sponzor_na_dresu, Sezona FROM ekipe WHERE ID = %s", (ID,))
     ekipe = cur.fetchone()
-    return template('ekipe-edit.html', ekipe=ekipe)
+    return rtemplate('ekipe-edit.html', ekipe=ekipe)
 
 
 @get('/<Sezona>/ekipe/<EKIPA>/<TRENER>')#Deluje
@@ -87,7 +87,7 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
     cur.execute("""SELECT TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr, Sezona from trenerji
                                     WHERE TRENER = %s AND Sezona=%s""",(TRENER,Sezona ))
     trenerjistatistika = cur.fetchall()
-    return template('trenerjistatistika.html', trenerjistatistika=trenerjistatistika)
+    return rtemplate('trenerjistatistika.html', trenerjistatistika=trenerjistatistika)
 
 #Od tukaj naprej Darjan probaval Edit
 
@@ -152,7 +152,7 @@ def ali_admin(username):
 @get('/registracija')
 def registracija_get():
     #cur = baza.cursor()
-    return template('registracija.html', username=None, napaka=None) 
+    return rtemplate('registracija.html', username=None, napaka=None) 
 
 @post("/registracija")
 def registracija_post():
@@ -166,17 +166,17 @@ def registracija_post():
     cur.execute("SELECT * FROM uporabnik WHERE username=%s", [username])
     if cur.fetchone():
         # Uporabnik že obstaja
-        return template("registracija.html",
+        return rtemplate("registracija.html",
                                username=username,
                                napaka='To uporabniško ime je že zasedeno.')
     elif not password1 == password2:
         # Geslo se ne ujemata
-        return template("registracija.html",
+        return rtemplate("registracija.html",
                                username=username,
                                napaka='Gesli se ne ujemata.')
     elif len(password1) < 4:
         # Prekratko geslo
-        return template("registracija.html",
+        return rtemplate("registracija.html",
                                username=username,
                                napaka='Geslo mora imeti vsaj 4 znake.')
     else:
@@ -190,7 +190,7 @@ def registracija_post():
                 response.set_cookie('username', username, secret=secret)
                 redirect("/")
             else:
-                return template("registracija.html",
+                return rtemplate("registracija.html",
                                 username=username,
                                 napaka='Admin geslo ni pravilno.')
         else:
@@ -203,7 +203,7 @@ def registracija_post():
 
 @get('/prijava')
 def prijava_get():
-    return template('prijava.html', napaka=None)
+    return rtemplate('prijava.html', napaka=None)
 
 @post('/prijava')
 def prijava_post():
@@ -215,7 +215,7 @@ def prijava_post():
     cur.execute("SELECT * FROM uporabnik WHERE username=%s AND password=%s", [username, password])
     if cur.fetchone() is None:
         # Username in geslo se ne ujemata
-        return template("prijava.html",
+        return rtemplate("prijava.html",
                                napaka="Uporabnik ne obstaja",
                                username=username)
     else:

@@ -37,7 +37,7 @@
             crossorigin="anonymous">
         <link rel="canonical"
             href="https://getbootstrap.com/docs/4.5/examples/cover/">
-        <link href="/static/stili.css" rel="stylesheet">
+        <link href="{{ROOT}}static/stili.css" rel="stylesheet">
         <!-- <style>
                 .bd-placeholder-img {
                   font-size: 1.125rem;
@@ -61,8 +61,8 @@
                 <div class="inner">
                     <h3 class="masthead-brand">Domača stran</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-link active" href="/prijava">Prijava</a>
-                        <a class="nav-link" href="/registracija">Registracija</a>
+                        <a class="nav-link active" href="{{ROOT}}prijava">Prijava</a>
+                        <a class="nav-link" href="{{ROOT}}registracija">Registracija</a>
                     </nav>
                 </div>
             </header>
@@ -71,13 +71,13 @@
                 <h1 class="py-3">Izberi sezono za pregled</h1>
                 <div class="row">
                 <p class="lead col">
-                    <a href="/16" class="btn btn-lg btn-outline-dark btn-block">2016/17</a>
+                    <a href="{{ROOT}}16" class="btn btn-lg btn-outline-dark btn-block">2016/17</a>
                 </p>
                 <p class="lead col">
-                    <a href="/17" class="btn btn-lg btn-outline-dark btn-block">2017/18</a>
+                    <a href="{{ROOT}}17" class="btn btn-lg btn-outline-dark btn-block">2017/18</a>
                 </p>
                 <p class="lead col">
-                    <a href="/18" class="btn btn-lg btn-outline-dark btn-block">2018/19</a>
+                    <a href="{{ROOT}}18" class="btn btn-lg btn-outline-dark btn-block">2018/19</a>
                 </p>
                 </div>
             </main>

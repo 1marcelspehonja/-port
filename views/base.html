@@ -12,7 +12,7 @@
             integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
             crossorigin="anonymous">
         <title>{{naslov}}</title>
-        <link rel="stylesheet" type="text/css" href="/static/stili.css" />
+        <link rel="stylesheet" type="text/css" href="{{ROOT}}static/stili.css" />
         <script src="/static/sport.js"></script>
     </head>
     <body>
@@ -21,11 +21,11 @@
                 <div class="inner">
                     <h3 class="masthead-brand">NBA menedžer</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-item nav-link" href="/{{leto}}">Igralci</a>
-                        <a class="nav-item nav-link" href="/{{leto}}/ekipe">Ekipe</a>
-                        <a class="nav-item nav-link" href="/">Domača stran</a>
-                        <a class="nav-item nav-link" href="/prijava">Prijava</a>
-                        <a class="nav-item nav-link" href="/registracija">Registracija</a>
+                        <a class="nav-item nav-link" href="{{ROOT}}{{leto}}">Igralci</a>
+                        <a class="nav-item nav-link" href="{{ROOT}}{{leto}}/ekipe">Ekipe</a>
+                        <a class="nav-item nav-link" href="{{ROOT}}">Domača stran</a>
+                        <a class="nav-item nav-link" href="{{ROOT}}prijava">Prijava</a>
+                        <a class="nav-item nav-link" href="{{ROOT}}registracija">Registracija</a>
                     </nav>
                 </div>
             </header>
