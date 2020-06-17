@@ -1,0 +1,19 @@
+% setdefault('napaka','')
+% rebase('base.html', napaka=napaka, naslov='Moji priljubljeni igralci')
+
+%from bottle import request
+%leto = None
+
+
+<table id="izpis" class= "table table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th>Ime in priimek</th>
+    </tr>
+    </thead>
+    %for (IGRALEC) in priljubljeni:
+    <tr>
+      <td>{{IGRALEC}}</td>
+    </tr>
+    %end
+  </table>
