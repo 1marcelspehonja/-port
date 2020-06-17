@@ -23,7 +23,6 @@
           <h3 class="masthead-brand">NBA menedžer</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-item nav-link" href="{{ROOT}}">Domača stran</a>
-            <a class="nav-item nav-link" href="{{ROOT}}prijava">Prijava</a>
             <a class="nav-item nav-link" href="{{ROOT}}registracija">Registracija</a>
           </nav>
         </div>
@@ -31,27 +30,19 @@
     </div>
     <div class="container">
     <h2 class="d-flex justify-content-center display-2">Prijava</h2>
-    <form action="{{ROOT}}prijava" method="post" autocomplete="off">
+    <form class="form-signin" action="{{ROOT}}prijava" method="post" autocomplete="off">
       <!-- <h1 class="h3 mb-3 font-weight-normal">Prijava</h1> -->
       <div class="form-row">
-        <div class="form-group col">
           <label for="inputUsername" class="sr-only">Uporabniško ime</label>
           <input type="username" id="inputUsername" class="form-control"
             placeholder="Uporabniško ime" name="username" required
-            oninput="this.setCustomValidity('')"
-            oninvalid="this.setCustomValidity('Obvezno polje')"
             />
-        </div>
-
-
-        <div class="form-group col">
+      </div>
+      <div class="form-row">
           <label for="inputPassword" class="sr-only">Geslo</label>
           <input type="password" id="inputPassword" class="form-control"
             placeholder="Geslo" name="password" required
-            oninput="this.setCustomValidity('')"
-            oninvalid="this.setCustomValidity('Obvezno polje')"
             />
-        </div>
       </div>
       <div class="checkbox mb-3">
         <label>
