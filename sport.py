@@ -156,6 +156,40 @@ def ali_admin(username):
     else:
         return False
 
+def postani_admin():
+    username = get_user()
+    adminPassword = request.forms.adminPassword
+    password = request.forms.password
+
+    cur.execute(
+        "WITH umesna3 AS (WITH umesna2 AS (WITH umesna AS (SELECT id, ranki, fis_code FROM rezultat JOIN tekma USING (id) "
+        [datetime.date(int(sezona) - 1, 11, 1), datetime.date(int(sezona), 3, 31)])
+    skupni_sestevek = cur.fetchall()
+
+    if password == "":
+        if adminPassword == adminGeslo:
+            cur.execute("UPDATE uporabnik SET admin = True WHERE username=%s", [username])
+            admin = ali_admin(username)
+            return template('zacetna.html', napaka=None, username=username, admin=admin)
+        else:
+            admin = is_admin(username)
+            return template('zacetna.html', skupni_sestevek=skupni_sestevek, sezone=sezone_seznam,
+                            napakaO="Vnesili ste napačno admin geslo.", username=username, admin=admin)
+    else:
+        cur.execute("SELECT password FROM uporabnik WHERE username=%s", [username])
+        if cur.fetchone()[0] == password_md5(password):
+            cur.execute("DELETE FROM uporabnik WHERE username=%s", [username])
+            response.delete_cookie('username')
+            return template('zacetna.html', napaka=None, username=None, admin=None)
+        else:
+            admin = is_admin(username)
+            return template('zacetna.html', napaka="Vnesili ste napačno geslo.", username=username, admin=admin)
+
+@post('/postani_admin')
+def postani_admin_post():
+    postani_admin()
+    redirect('/')
+
 @get('/registracija')
 def registracija_get():
     #cur = baza.cursor()

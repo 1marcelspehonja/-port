@@ -112,4 +112,12 @@ h2 {
  .mastfoot {
    color: rgba(255, 255, 255, .5);
  }
- 
+ input[type="admin password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  visibility:hidden;
+}
+input[type="checkbox"]:checked + input[type="admin password"] {
+  visibility:visible;
+}
