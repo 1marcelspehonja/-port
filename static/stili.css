@@ -130,3 +130,8 @@ input[type="checkbox"]:checked + input[type="admin password"] {
   padding: 10px;
   margin: auto;
 }
+#dropdownMenuButton{
+  background: transparent;
+  border:none;
+  color: black;
+}
