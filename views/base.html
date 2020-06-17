@@ -24,7 +24,11 @@
                         <a class="nav-item nav-link" href="{{ROOT}}{{leto}}">Igralci</a>
                         <a class="nav-item nav-link" href="{{ROOT}}{{leto}}/ekipe">Ekipe</a>
                         <a class="nav-item nav-link" href="{{ROOT}}">Domača stran</a>
+                        % if username:
+                        <a class="nav-item nav-link" href="{{ROOT}}odjava">Odjava</a>
+                        % else:
                         <a class="nav-item nav-link" href="{{ROOT}}prijava">Prijava</a>
+                        % end
                         <a class="nav-item nav-link" href="{{ROOT}}registracija">Registracija</a>
                     </nav>
                 </div>
