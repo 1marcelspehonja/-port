@@ -1,10 +1,8 @@
-
 %rebase('base.html',naslov= 'Uredi sponzorja')
 %from bottle import request
-
 %idekipe = request.url.split("/")[-1]
 %leto = request.url.split("/")[-4]
-<form action="{{ROOT}}{{leto}}/ekipe/uredi/{{idekipe}}" method="post">
+<!-- <form action="{{ROOT}}{{leto}}/ekipe/uredi/{{idekipe}}" method="post"> -->
 
 
 <form action="{{ROOT}}{{leto}}/ekipe/uredi/{{ekipe[0]}}" method="post">

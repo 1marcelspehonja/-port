@@ -74,13 +74,21 @@ def igralciekipa(Sezona,EKIPA):
     igralciekipa = cur.fetchall()
     return rtemplate('igralciekipa.html', igralciekipa=igralciekipa, EKIPA=EKIPA, Sezona=Sezona, username=username, admin=admin)
 
+@post('/<username>/priljubljeni/<IGRALEC>&<Sezona>')
+def priljubljeni(username, IGRALEC, Sezona):
+    username = preveriUporabnika()
+    """ if username is None:
+        return redirect('/' + Sezona) """
+    cur.execute("INSERT INTO priljubljeni VALUES (%s,%s)",(username, IGRALEC,))
+    redirect('/' + Sezona)
+
 @get('/<username>/priljubljeni')
-def priljubljeni(username):
+def priljubljeni_tabela(username):
     username = preveriUporabnika()
     admin = ali_admin(username)
-    cur.execute("SELECT IGRALEC from priljubljeni WHERE username=%s",(username,))
-    priljubljeni = cur.fetchall()
-    return rtemplate('priljubljeni.html', priljubljeni=priljubljeni, username=username, admin=admin)
+    cur.execute("SELECT igralec from priljubljeni WHERE username = %s",(username,))
+    priljubljeni_tabela = cur.fetchall()
+    return rtemplate('priljubljeni.html', priljubljeni_tabela=priljubljeni_tabela, username=username, admin=admin)
 
 @get('/<Sezona>/<IGRALEC>')#Deluje
 def igralecstatistika(Sezona,IGRALEC):
@@ -134,13 +142,6 @@ def uredi_sponzorja_post(ID, Sezona):
     #      redirect('/17/ekipe')
     # else:
     #      redirect('/18/ekipe')
-    
-"""@post('/<username>/priljubljeni')
-def priljubljeni_post(username):
-    Sponzor_na_dresu = request.forms.Sponzor_na_dresu
-    cur.execute("POST priljubljeni SET IGRALEC = %s AND ID = %s RETURNING sezona", (Sponzor_na_dresu, ID))
-    #priljubljeni_post = cur.fetchone()
-    redirect('/')"""
 
 ###########################################################
 ################ Registracija/Prijava #####################
