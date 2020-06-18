@@ -63,11 +63,16 @@
                     <nav class="nav nav-masthead justify-content-center">
                         % if username:
                             % if admin:
+                              <a class="text-dark text-center">Admin:</a>
                                 <a class="nav-item dropdown">
                                 <a class="dropdown-toggle col-4 text-center" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{username}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal2">
+                                    Uredi sponzorje
+                                    </button>
+                                    <div class="dropdown-divider"></div>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal1">
                                     Izbriši račun
                                     </button>
@@ -147,16 +152,11 @@
     <!-- ###################################################################################################### -->
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <style>
-            .modal-content h5 {
-                color: black;
-            }
-            </style>
-          <h5 class="modal-title col" id="exampleModalLabel">Želiš postati admin?</h5>
+          <h5 class="modal-title col">Želiš postati admin?</h5>
         </div>
         <form class="form-signin" action="/postani_admin" method="post">
         <div class="modal-body">
@@ -172,11 +172,11 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title col" id="exampleModalLabel1">Izbris računa</h5>
+          <h5 class="modal-title col">Izbris računa</h5>
         </div>
         <form class="form-signin" action="/postani_admin" method="post">
         <div class="modal-body">
@@ -184,6 +184,34 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" type="submit">Izbriši</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title col">Izberi sezono za urejanje sponzorjev</h5>
+        </div>
+        <form class="form-signin">
+            <p class="lead col">
+                <a href="/16/ekipe" class="btn btn-lg btn-outline-dark
+                    btn-block">2016/17</a>
+            </p>
+            <p class="lead col">
+                <a href="/17/ekipe" class="btn btn-lg btn-outline-dark
+                    btn-block">2017/18</a>
+            </p>
+            <p class="lead col">
+                <a href="/18/ekipe" class="btn btn-lg btn-outline-dark
+                    btn-block">2018/19</a>
+            </p>
+        <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
         </div>
         </form>
