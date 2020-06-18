@@ -97,6 +97,7 @@
                         % else:
                         <a class="nav-link" href="/prijava">Prijava</a>
                         <a class="nav-link" href="/registracija">Registracija</a>
+                        
                         % end
                     </nav>
                 </div>
@@ -150,14 +151,19 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
+          <style>
+            .modal-content h5 {
+                color: black;
+            }
+            </style>
           <h5 class="modal-title col" id="exampleModalLabel">Želiš postati admin?</h5>
         </div>
         <form class="form-signin" action="/postani_admin" method="post">
         <div class="modal-body">
-          <input type="password" id="inputPassword" class="form-control" placeholder="Specialno admin geslo" name="adminPassword">
+          <input type="password" id="inputPassword" class="form-control" placeholder="Specialno admin geslo" name="adminPassword" required>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" type="submit">Postani admin</button>
+          <button class="btn btn-primary btn-login" type="submit">Postani admin</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
         </div>
         </form>
@@ -174,7 +180,7 @@
         </div>
         <form class="form-signin" action="/postani_admin" method="post">
         <div class="modal-body">
-          <input type="password" id="inputPassword1" class="form-control" placeholder="Vnesite svoje geslo" name="password">
+          <input type="password" id="inputPassword1" class="form-control" placeholder="Vnesite svoje geslo" name="password" required>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" type="submit">Izbriši</button>

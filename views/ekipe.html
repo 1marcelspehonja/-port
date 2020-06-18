@@ -20,7 +20,9 @@
         <th>W_sezona</th>
         <th>L_sezona</th>
         <th>Sponzor</th>
+        % if admin is not False:
         <th>Akcija</th>
+        % end
       </tr>
       %for (ID,Ime_ekipe,Kratica,TRENER, W_sezona,L_sezona, Sponzor_na_dresu) in ekipe:
       <tr>
@@ -42,11 +44,13 @@
         <td>{{W_sezona}}</td>
         <td>{{L_sezona}}</td>
         <td>{{Sponzor_na_dresu}}</td>
+        % if admin is not False: 
         <td>
           <form  action="{{ROOT}}{{leto}}/ekipe/uredi/{{ID}}" method="get"> 
             <input value="Uredi sponzorja" type="submit"/>
           </form>
         </td>    
+        % end
       </tr>
       %end
     </table>

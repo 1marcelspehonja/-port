@@ -115,6 +115,8 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
 
 @post('/<Sezona>/ekipe/uredi/<ID>')
 def uredi_sponzorja_post(ID, Sezona):
+    username = preveriUporabnika()
+    admin = ali_admin(username)
     Sponzor_na_dresu = request.forms.Sponzor_na_dresu
     #cur = baza.cursor()
     #cur.execute("UPDATE ekipe SET Sponzor_na_dresu = %s WHERE ID = %s", (Sponzor_na_dresu, ID))
@@ -132,7 +134,7 @@ def uredi_sponzorja_post(ID, Sezona):
     #      redirect('/17/ekipe')
     # else:
     #      redirect('/18/ekipe')
-
+    
 """@post('/<username>/priljubljeni')
 def priljubljeni_post(username):
     Sponzor_na_dresu = request.forms.Sponzor_na_dresu
