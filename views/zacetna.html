@@ -37,7 +37,7 @@
             crossorigin="anonymous">
         <link rel="canonical"
             href="https://getbootstrap.com/docs/4.5/examples/cover/">
-        <link href="{{ROOT}}static/stili.css" rel="stylesheet">
+        <link href="/static/stili.css" rel="stylesheet">
         <!-- <style>
                 .bd-placeholder-img {
                   font-size: 1.125rem;
@@ -62,10 +62,41 @@
                     <h3 class="masthead-brand">Domača stran</h3>
                     <nav class="nav nav-masthead justify-content-center">
                         % if username:
-                        <a class="nav-link" href="{{ROOT}}odjava">Odjava</a>
+                            % if admin:
+                                <a class="nav-item dropdown">
+                                <a class="dropdown-toggle col-4 text-center" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{username}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal1">
+                                    Izbriši račun
+                                    </button>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/odjava">Odjava</a>
+                                </div>
+                                </a>
+                            % else:
+                                <a class="nav-item dropdown">
+                                <a class="dropdown-toggle col-4 text-center" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{username}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">
+                                    Postani admin
+                                    </button>
+                                    <div class="dropdown-divider"></div>
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal1">
+                                    Izbriši račun
+                                    </button>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/odjava">Odjava</a>
+                                </div>
+                                </a>
+                            % end
                         % else:
-                        <a class="nav-link" href="{{ROOT}}prijava">Prijava</a>
-                        <a class="nav-link" href="{{ROOT}}registracija">Registracija</a>
+                        <a class="nav-link" href="/prijava">Prijava</a>
+                        <a class="nav-link" href="/registracija">Registracija</a>
                         % end
                     </nav>
                 </div>
@@ -75,15 +106,15 @@
                 <h1 class="py-3">Izberi sezono za pregled</h1>
                 <div class="row">
                     <p class="lead col">
-                        <a href="{{ROOT}}16" class="btn btn-lg btn-outline-dark
+                        <a href="/16" class="btn btn-lg btn-outline-dark
                             btn-block">2016/17</a>
                     </p>
                     <p class="lead col">
-                        <a href="{{ROOT}}17" class="btn btn-lg btn-outline-dark
+                        <a href="/17" class="btn btn-lg btn-outline-dark
                             btn-block">2017/18</a>
                     </p>
                     <p class="lead col">
-                        <a href="{{ROOT}}18" class="btn btn-lg btn-outline-dark
+                        <a href="/18" class="btn btn-lg btn-outline-dark
                             btn-block">2018/19</a>
                     </p>
 
@@ -110,8 +141,63 @@
                     <p>Avtorji: Darjan Pavšič, Tim Resnik, Marcel Špehonja.</p>
                 </div>
             </footer>
+
+
+    <!-- ###################################################################################################### -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title col" id="exampleModalLabel">Želiš postati admin?</h5>
         </div>
+        <form class="form-signin" action="/postani_admin" method="post">
+        <div class="modal-body">
+          <input type="password" id="inputPassword" class="form-control" placeholder="Specialno admin geslo" name="adminPassword">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Postani admin</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title col" id="exampleModalLabel1">Izbris računa</h5>
+        </div>
+        <form class="form-signin" action="/postani_admin" method="post">
+        <div class="modal-body">
+          <input type="password" id="inputPassword1" class="form-control" placeholder="Vnesite svoje geslo" name="password">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Izbriši</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+%if napaka:
+<div class="alert alert-warning">{{napaka}}</div>
+%end
+
+    </div>
     </body>
 </html>
