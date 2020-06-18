@@ -135,6 +135,6 @@ input[type="checkbox"]:checked + input[type="admin password"] {
   border:none;
   color: black;
 }
-.modal-title h5 {
+.modal-content h5 {
   color: black;
 }
