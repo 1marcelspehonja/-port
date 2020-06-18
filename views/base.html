@@ -25,7 +25,43 @@
                         <a class="nav-item nav-link" href="{{ROOT}}{{leto}}/ekipe">Ekipe</a>
                         <a class="nav-item nav-link" href="{{ROOT}}">Domača stran</a>
                         % if username:
-                        <a class="nav-item nav-link" href="{{ROOT}}odjava">Odjava</a>
+                            <!-- <a class="nav-item nav-link" href="{{ROOT}}odjava">Odjava</a> -->
+                            % if admin:
+                                <a class="nav-item nav-link">
+                                <a class="dropdown-toggle nav-link" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{username}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal2">
+                                    Uredi sponzorje
+                                    </button>
+                                    <div class="dropdown-divider"></div>
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal1">
+                                    Izbriši račun
+                                    </button>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/odjava">Odjava</a>
+                                </div>
+                                </a>
+                            % else:
+                                <a class="nav-item nav-link">
+                                <a class="dropdown-toggle nav-link" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{username}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">
+                                    Postani admin
+                                    </button>
+                                    <div class="dropdown-divider"></div>
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal1">
+                                    Izbriši račun
+                                    </button>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/odjava">Odjava</a>
+                                </div>
+                                </a>
+                            % end
                         % else:
                         <a class="nav-item nav-link" href="{{ROOT}}prijava">Prijava</a>
                         <a class="nav-item nav-link" href="{{ROOT}}registracija">Registracija</a>
