@@ -77,6 +77,75 @@
             {{!base}}
         </div>
 
+        <!-- ###################################################################################################### -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title col">Želiš postati admin?</h5>
+                </div>
+                <form class="form-signin" action="/postani_admin" method="post">
+                <div class="modal-body">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Specialno admin geslo" name="adminPassword" required>
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-primary btn-login" type="submit">Postani admin</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title col">Izbris računa</h5>
+                </div>
+                <form class="form-signin" action="/postani_admin" method="post">
+                <div class="modal-body">
+                <input type="password" id="inputPassword1" class="form-control" placeholder="Vnesite svoje geslo" name="password" required>
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">Izbriši</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title col">Izberi sezono za urejanje sponzorjev</h5>
+                </div>
+                <form class="form-signin">
+                    <p class="lead col">
+                        <a href="/16/ekipe" class="btn btn-lg btn-outline-dark
+                            btn-block">2016/17</a>
+                    </p>
+                    <p class="lead col">
+                        <a href="/17/ekipe" class="btn btn-lg btn-outline-dark
+                            btn-block">2017/18</a>
+                    </p>
+                    <p class="lead col">
+                        <a href="/18/ekipe" class="btn btn-lg btn-outline-dark
+                            btn-block">2018/19</a>
+                    </p>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
