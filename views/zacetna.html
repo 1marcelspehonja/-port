@@ -37,7 +37,8 @@
             crossorigin="anonymous">
         <link rel="canonical"
             href="https://getbootstrap.com/docs/4.5/examples/cover/">
-        <link href="/static/stili.css" rel="stylesheet">
+        <link href="{{ROOT}}static/stili.css" rel="stylesheet">
+        <script src="/static/sport.js"></script>
         <!-- <style>
                 .bd-placeholder-img {
                   font-size: 1.125rem;
@@ -73,13 +74,13 @@
                                     Uredi sponzorje
                                     <div class="dropdown-divider"></div>
                                     </button>
-                                    <a class="dropdown-item" href="/{{username}}/priljubljeni">Priljubljeni igralci</a>
+                                    <a class="dropdown-item" href="{{ROOT}}{{username}}/priljubljeni">Priljubljeni igralci</a>
                                     <div class="dropdown-divider"></div>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal1">
                                     Izbriši račun
                                     </button>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/odjava">Odjava</a>
+                                    <a class="dropdown-item" href="{{ROOT}}odjava">Odjava</a>
                                 </div>
                                 </a>
                             % else:
@@ -93,19 +94,19 @@
                                     </button>
                                     <div class="dropdown-divider"></div>
                                     </button>
-                                    <a class="dropdown-item" href="/{{username}}/priljubljeni">Priljubljeni igralci</a>
+                                    <a class="dropdown-item" href="{{ROOT}}{{username}}/priljubljeni">Priljubljeni igralci</a>
                                     <div class="dropdown-divider"></div>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal1">
                                     Izbriši račun
                                     </button>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/odjava">Odjava</a>
+                                    <a class="dropdown-item" href="{{ROOT}}odjava">Odjava</a>
                                 </div>
                                 </a>
                             % end
                         % else:
-                        <a class="nav-link" href="/prijava">Prijava</a>
-                        <a class="nav-link" href="/registracija">Registracija</a>
+                        <a class="nav-link" href="{{ROOT}}prijava">Prijava</a>
+                        <a class="nav-link" href="{{ROOT}}registracija">Registracija</a>
                         
                         % end
                     </nav>
@@ -116,15 +117,15 @@
                 <h1 class="py-3">Izberi sezono za pregled</h1>
                 <div class="row">
                     <p class="lead col">
-                        <a href="/16" class="btn btn-lg btn-outline-dark
+                        <a href="{{ROOT}}16" class="btn btn-lg btn-outline-dark
                             btn-block">2016/17</a>
                     </p>
                     <p class="lead col">
-                        <a href="/17" class="btn btn-lg btn-outline-dark
+                        <a href="{{ROOT}}17" class="btn btn-lg btn-outline-dark
                             btn-block">2017/18</a>
                     </p>
                     <p class="lead col">
-                        <a href="/18" class="btn btn-lg btn-outline-dark
+                        <a href="{{ROOT}}18" class="btn btn-lg btn-outline-dark
                             btn-block">2018/19</a>
                     </p>
 
@@ -204,15 +205,15 @@
         </div>
         <form class="form-signin">
             <p class="lead col">
-                <a href="/16/ekipe" class="btn btn-lg btn-outline-dark
+                <a href="{{ROOT}}16/ekipe" class="btn btn-lg btn-outline-dark
                     btn-block">2016/17</a>
             </p>
             <p class="lead col">
-                <a href="/17/ekipe" class="btn btn-lg btn-outline-dark
+                <a href="{{ROOT}}17/ekipe" class="btn btn-lg btn-outline-dark
                     btn-block">2017/18</a>
             </p>
             <p class="lead col">
-                <a href="/18/ekipe" class="btn btn-lg btn-outline-dark
+                <a href="{{ROOT}}18/ekipe" class="btn btn-lg btn-outline-dark
                     btn-block">2018/19</a>
             </p>
         <div class="modal-footer">
