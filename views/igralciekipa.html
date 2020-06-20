@@ -3,17 +3,19 @@
 % from bottle import request
 % leto = request.url.split("/")[-3]
 
-<table id="izpis" class="table table-striped">
-  <tr>
-    <th>Ime in priimek</th>
-    <th>Ekipa</th>
-    <th>Pozicija</th>
-    <th>Starost</th>
-    <th>Višina</th>
-    <th>Teža</th>
-    <th>Država</th>
-    <th>Statistika igralca</th>
-  </tr>
+<table id="izpis" class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Ime in priimek</th>
+      <th>Ekipa</th>
+      <th>Pozicija</th>
+      <th>Starost</th>
+      <th>Višina</th>
+      <th>Teža</th>
+      <th>Država</th>
+      <th>Statistika igralca</th>
+    </tr>
+  </thead>
   %for (IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona) in igralciekipa:
   <tr>
     <td>{{IGRALEC}}</td>
@@ -24,12 +26,12 @@
     <td>{{TEZA}} lbs</td>
     <td>{{DRZAVA}}</td>
     <td>
-        <div>
-          <form action="{{ROOT}}{{Sezona}}/{{IGRALEC}}" method="get">
-            <a href="#" onclick="this.parentElement.submit()">Pojdi</a>
-          </form>
-        </div>
-      </td>
+      <div>
+        <form action="{{ROOT}}{{Sezona}}/{{IGRALEC}}" method="get">
+          <a href="#" onclick="this.parentElement.submit()">Pojdi</a>
+        </form>
+      </div>
+    </td>
   </tr>
   %end
 </table>

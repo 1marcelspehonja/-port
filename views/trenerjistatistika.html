@@ -4,24 +4,26 @@
 % leto = request.url.split("/")[-4]
 
 
-<table id="izpis" class="table table-striped">
-  <tr>
-    <th>Ime in priimek</th>
-    <th>Ekipa</th>
-    <th>Št. let z ekipo</th>
-    <th>Št. let kariere</th>
-    <th>Iger v sezoni</th>
-    <th>Zmage v sezoni</th>
-    <th>Porazi v sezoni</th>
-    <th>Iger s klubom</th>
-    <th>Zmage z ekipo</th>
-    <th>Porazi z ekipo</th>
-    <th>Iger v karieri</th>
-    <th>Zmage v karieri</th>
-    <th>Porazi v karieri</th>
-    <th>Zmage v karieri %</th>
-  </tr>
-  %for (TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr, Sezona) in trenerjistatistika:
+<table id="izpis" class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Ime in priimek</th>
+      <th>Ekipa</th>
+      <th>Št. let z ekipo</th>
+      <th>Št. let kariere</th>
+      <th>Iger v sezoni</th>
+      <th>Zmage v sezoni</th>
+      <th>Porazi v sezoni</th>
+      <th>Iger s klubom</th>
+      <th>Zmage z ekipo</th>
+      <th>Porazi z ekipo</th>
+      <th>Iger v karieri</th>
+      <th>Zmage v karieri</th>
+      <th>Porazi v karieri</th>
+      <th>Zmage v karieri %</th>
+    </tr>
+  </thead>
+  %for (TRENER,EKIPA,st_let_s_klubom,st_let_kariera,G_sezona,W_sezona,L_sezona,G_s_klubom,W_s_klubom,L_s_klubom,G_kariera,W_kariera,L_kariera,W_pr,Sezona) in trenerjistatistika:
   <tr>
     <td>{{TRENER}}</td>
     <td>{{EKIPA}}</td>

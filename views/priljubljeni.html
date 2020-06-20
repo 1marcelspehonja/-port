@@ -9,11 +9,19 @@
     <thead class="thead-dark">
     <tr>
       <th>Ime in priimek</th>
+      <th>Statistika igralca</th>
     </tr>
     </thead>
-    %for (igralec) in priljubljeni_tabela:
+    %for (username, igralec) in priljubljeni_tabela:
     <tr>
       <td>{{igralec}}</td>
+      
+      <td>
+        <form class="" action="{{ROOT}}{{username}}/priljubljeni/{{igralec}}" method="get">
+          <a href="#" onclick="this.parentElement.submit()">Statistika
+          </a>
+        </form>
+      </td>
     </tr>
     %end
   </table>

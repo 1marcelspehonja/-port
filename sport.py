@@ -86,11 +86,20 @@ def priljubljeni(username, IGRALEC, Sezona):
 def priljubljeni_tabela(username):
     username = preveriUporabnika()
     admin = ali_admin(username)
-    cur.execute("SELECT igralec from priljubljeni WHERE username = %s",(username,))
+    cur.execute("SELECT * from priljubljeni WHERE username = %s",(username,))
     priljubljeni_tabela = cur.fetchall()
     return rtemplate('priljubljeni.html', priljubljeni_tabela=priljubljeni_tabela, username=username, admin=admin)
 
-@get('/<Sezona>/<IGRALEC>')#Deluje
+@get('/<username>/priljubljeni/<IGRALEC>')
+def priljubljenistatistika(username,IGRALEC):
+    username = preveriUporabnika()
+    admin = ali_admin(username)
+    #cur = baza.cursor()
+    cur.execute("""SELECT IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona from igralci WHERE IGRALEC=%s""",(IGRALEC,))
+    priljubljenistatistika = cur.fetchall()
+    return rtemplate('priljubljenistatistika.html', priljubljenistatistika=priljubljenistatistika, IGRALEC=IGRALEC, username=username, admin=admin)
+
+@get('/<Sezona>/<IGRALEC>')
 def igralecstatistika(Sezona,IGRALEC):
     username = preveriUporabnika()
     admin = ali_admin(username)

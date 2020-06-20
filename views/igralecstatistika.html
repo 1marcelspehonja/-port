@@ -3,19 +3,21 @@
 %from bottle import request
 %leto = request.url.split("/")[-2]
 
-<table id="izpis" class= "table">
-  <tr>
-    <th>Ime in priimek</th>
-    <th>GP</th>
-    <th>MPG</th>
-    <th>PPG</th>
-    <th>APG</th>
-    <th>RPG</th>
-    <th>SPG</th>
-    <th>FT%</th>
-    <th>2%</th>
-    <th>3%</th>
-  </tr>
+<table id="izpis" class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Ime in priimek</th>
+      <th>GP</th>
+      <th>MPG</th>
+      <th>PPG</th>
+      <th>APG</th>
+      <th>RPG</th>
+      <th>SPG</th>
+      <th>FT%</th>
+      <th>2%</th>
+      <th>3%</th>
+    </tr>
+  </thead>
   %for (IGRALEC,GP,MPG,PPG,APG,RPG,SPG,FT,DVA,TRI,Sezona) in igralecstatistika:
   <tr>
     <td>{{IGRALEC}}</td>
