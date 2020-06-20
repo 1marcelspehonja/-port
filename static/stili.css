@@ -6,6 +6,11 @@ h2 {
     border-radius: 4px;
 }
 
+.urejanje {
+  font-size: 20px;
+}
+
+
 .orodna-vrstica {
     display: inline-flex;
     background-color: lightgray;

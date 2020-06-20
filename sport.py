@@ -128,7 +128,6 @@ def trenerjistatistika(TRENER,Sezona,EKIPA):
     trenerjistatistika = cur.fetchall()
     return rtemplate('trenerjistatistika.html', trenerjistatistika=trenerjistatistika, username=username, admin=admin)
 
-#Od tukaj naprej Darjan probaval Edit
 
 @post('/<Sezona>/ekipe/uredi/<ID>')
 def uredi_sponzorja_post(ID, Sezona):
@@ -136,21 +135,10 @@ def uredi_sponzorja_post(ID, Sezona):
     admin = ali_admin(username)
     Sponzor_na_dresu = request.forms.Sponzor_na_dresu
     #cur = baza.cursor()
-    #cur.execute("UPDATE ekipe SET Sponzor_na_dresu = %s WHERE ID = %s", (Sponzor_na_dresu, ID))
     cur.execute("UPDATE ekipe SET Sponzor_na_dresu = %s WHERE ID = %s RETURNING sezona", (Sponzor_na_dresu, ID))
     sezona = cur.fetchone()
-    #print (sezona)
-    #print (sezona.type())
-    #print (sezona[0])
-    #print (sezona[0].type())
-    # Kako 'sezona' spravim v <Sezona>??? /
     redirect('/' + str(sezona[0]) + '/ekipe')
-    # if int(ID) <31:
-    #      redirect('/16/ekipe')
-    # elif int(ID) <61:
-    #      redirect('/17/ekipe')
-    # else:
-    #      redirect('/18/ekipe')
+
 
 ###########################################################
 ################ Registracija/Prijava #####################

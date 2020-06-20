@@ -4,7 +4,7 @@
 %leto = request.url.split("/")[-4]
 
 <form action="{{ROOT}}{{leto}}/ekipe/uredi/{{ekipe[0]}}" method="post">
-    <table cellpadding="0" cellspacing="0" border="0">
+    <table cellpadding="0" cellspacing="0" border="0" class="urejanje">
         <tr>
             <td>
                 <span>Ekipa: </span>
@@ -31,12 +31,30 @@
             </td>
         </tr>
         <tr>
+
+        </tr>
+        <tr>
             <td>
 
             </td>
             <td>
-                <input value="Uredi" type="submit" />
+                <!-- <input value="Uredi" type="submit" /> -->
+                <button type="submit" class="btn btn-outline-secondary">Uredi</button>
+            </td>
+            <td>
+                <div class="d-flex justify-content-end py-3">
+                    <a href="/{{leto}}/ekipe">        
+                      <button type="button" class="btn btn-outline-secondary">Prekliči urejanje</button>
+                    </a>
+                </div>
             </td>
         </tr>
     </table>
 </form>
+
+    
+<!-- <div class="d-flex justify-content-end py-3">
+    <a href="/{{leto}}/ekipe">        
+      <button type="button" class="btn btn-outline-secondary">Prekliči urejanje</button>
+    </a>
+</div> -->
