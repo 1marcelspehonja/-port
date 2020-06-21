@@ -67,7 +67,7 @@ def ekipe(Sezona):
 @get('/<Sezona>/ekipe/<EKIPA>')#Deluje
 def igralciekipa(Sezona,EKIPA):
     username = preveriUporabnika()
-    admin = ali_admin(username)
+    
     #cur = baza.cursor()
     cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci
                                     WHERE EKIPA = %s AND Sezona =%s""",(EKIPA, Sezona,))
@@ -77,10 +77,12 @@ def igralciekipa(Sezona,EKIPA):
 @post('/<username>/priljubljeni/<IGRALEC>&<Sezona>')
 def priljubljeni(username, IGRALEC, Sezona):
     username = preveriUporabnika()
-    """ if username is None:
-        return redirect('/' + Sezona) """
-    cur.execute("INSERT INTO priljubljeni VALUES (%s,%s)",(username, IGRALEC,))
-    redirect('/' + Sezona)
+    cur.execute("SELECT * FROM priljubljeni WHERE username=%s AND IGRALEC=%s", [username, IGRALEC])
+    if cur.fetchone() is None:
+        cur.execute("INSERT INTO priljubljeni VALUES (%s,%s)",(username, IGRALEC,))
+        redirect('/{0}/{1}'.format(ROOT, Sezona))
+    else:
+        redirect('/{0}/{1}'.format(ROOT, Sezona))
 
 @get('/<username>/priljubljeni')
 def priljubljeni_tabela(username):
