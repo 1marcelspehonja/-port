@@ -67,7 +67,7 @@ def ekipe(Sezona):
 @get('/<Sezona>/ekipe/<EKIPA>')#Deluje
 def igralciekipa(Sezona,EKIPA):
     username = preveriUporabnika()
-    
+    admin = ali_admin(username)
     #cur = baza.cursor()
     cur.execute("""SELECT IGRALEC,EKIPA,POZICIJA,STAROST,VISINA,TEZA,DRZAVA,Sezona from igralci
                                     WHERE EKIPA = %s AND Sezona =%s""",(EKIPA, Sezona,))
