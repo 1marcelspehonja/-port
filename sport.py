@@ -139,7 +139,8 @@ def uredi_sponzorja_post(ID, Sezona):
     #cur = baza.cursor()
     cur.execute("UPDATE ekipe SET Sponzor_na_dresu = %s WHERE ID = %s RETURNING sezona", (Sponzor_na_dresu, ID))
     sezona = cur.fetchone()
-    redirect('/' + str(sezona[0]) + '/ekipe')
+    redirect('/{0}/{1}/ekipe'.format(ROOT,str(sezona[0])))
+    """ redirect('/' + str(sezona[0]) + '/ekipe') """
 
 
 ###########################################################
@@ -203,7 +204,7 @@ def postani_admin():
 @post('/postani_admin')
 def postani_admin_post():
     postani_admin()
-    redirect('/')
+    redirect('{0}'.format(ROOT))
 
 @get('/registracija')
 def registracija_get():
@@ -244,7 +245,7 @@ def registracija_post():
                             (username, password, True))
                 # Daj uporabniku cookie
                 response.set_cookie('username', username, secret=secret)
-                redirect("/")
+                redirect("{0}".format(ROOT))
             else:
                 return rtemplate("registracija.html",
                                 username=username,
@@ -255,7 +256,7 @@ def registracija_post():
                         (username, password, False))
             # Daj uporabniku cookie
             response.set_cookie('username', username, secret=skrivnost)
-            redirect("/") 
+            redirect("{0}".format(ROOT)) 
 
 @get('/prijava')
 def prijava_get():
@@ -277,13 +278,13 @@ def prijava_post():
     else:
         # Vse OK, nastavimo cookie in preusmerimo na glavno stran
         response.set_cookie('username', username, secret=skrivnost)
-        redirect("/")
+        redirect("{0}".format(ROOT))
 
 @get('/odjava')
 def odjava_get():
     # Pobriši cookie in preusmeri na login.
     response.delete_cookie('username')
-    redirect('/prijava')
+    redirect('/{0}/prijava'.format(ROOT))
 ##########################################################################################
 
 
