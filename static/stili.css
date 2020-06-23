@@ -30,7 +30,7 @@ h2 {
 }
 
 .bg {
-    background-image: url(/static/domaca.jpg);
+    background-image: url(domaca.jpg);
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;

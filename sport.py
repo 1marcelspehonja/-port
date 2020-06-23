@@ -80,9 +80,9 @@ def priljubljeni(username, IGRALEC, Sezona):
     cur.execute("SELECT * FROM priljubljeni WHERE username=%s AND IGRALEC=%s", [username, IGRALEC])
     if cur.fetchone() is None:
         cur.execute("INSERT INTO priljubljeni VALUES (%s,%s)",(username, IGRALEC,))
-        redirect('/{0}/{1}'.format(ROOT, Sezona))
+        redirect('{0}{1}'.format(ROOT, Sezona))
     else:
-        redirect('/{0}/{1}'.format(ROOT, Sezona))
+        redirect('{0}{1}'.format(ROOT, Sezona))
 
 @get('/<username>/priljubljeni')
 def priljubljeni_tabela(username):
@@ -139,7 +139,7 @@ def uredi_sponzorja_post(ID, Sezona):
     #cur = baza.cursor()
     cur.execute("UPDATE ekipe SET Sponzor_na_dresu = %s WHERE ID = %s RETURNING sezona", (Sponzor_na_dresu, ID))
     sezona = cur.fetchone()
-    redirect('/{0}/{1}/ekipe'.format(ROOT,str(sezona[0])))
+    redirect('{0}{1}/ekipe'.format(ROOT,str(sezona[0])))
     """ redirect('/' + str(sezona[0]) + '/ekipe') """
 
 
@@ -284,7 +284,7 @@ def prijava_post():
 def odjava_get():
     # Pobriši cookie in preusmeri na login.
     response.delete_cookie('username')
-    redirect('/{0}/prijava'.format(ROOT))
+    redirect('{0}prijava'.format(ROOT))
 ##########################################################################################
 
 
