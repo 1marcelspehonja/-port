@@ -44,7 +44,7 @@
       % if username is not None:
       <div>
         <form action="{{ROOT}}{{username}}/priljubljeni/{{IGRALEC}}&{{Sezona}}" method="post">
-          <a href="#" onclick="this.parentElement.submit()">Dodaj k priljubljenim
+          <a href="#" onclick="this.parentElement.submit()" data-toggle="modal" data-target="#exampleModal4"> Dodaj k priljubljenim
           </a>
         </form>
       </div>
@@ -58,4 +58,18 @@
     </td>
   </tr>
   %end
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title col">Igralec je bil dodan med priljubljene!</h5>
+        </div>
+        <form class="form-signin">     
+        </form>
+      </div>
+    </div>
+  </div>
+
 </table>
