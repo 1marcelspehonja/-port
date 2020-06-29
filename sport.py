@@ -273,7 +273,7 @@ def prijava_post():
     if cur.fetchone() is None:
         # Username in geslo se ne ujemata
         return rtemplate("prijava.html",
-                               napaka="Uporabnik ne obstaja",
+                               napaka="Uporabniško ime ali geslo nista ustrezna",
                                username=username)
     else:
         # Vse OK, nastavimo cookie in preusmerimo na glavno stran

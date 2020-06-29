@@ -41,12 +41,14 @@
           </a>
         </form>
       </div>
+      % if username is not None:
       <div>
         <form action="{{ROOT}}{{username}}/priljubljeni/{{IGRALEC}}&{{Sezona}}" method="post">
           <a href="#" onclick="this.parentElement.submit()">Dodaj k priljubljenim
           </a>
         </form>
       </div>
+      % end
       <!--<div>
       <form class="" action="{{ROOT}}{{Sezona}}/{{IGRALEC}}" method="post">
           <a href="#" onclick="this.parentElement.submit()">Dodaj k priljubljenim
