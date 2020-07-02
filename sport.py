@@ -244,7 +244,7 @@ def registracija_post():
                 cur.execute("INSERT INTO uporabnik (username, password, admin) VALUES (%s, %s, %s)",
                             (username, password, True))
                 # Daj uporabniku cookie
-                response.set_cookie('username', username, secret=secret)
+                response.set_cookie('username', username, secret=skrivnost)
                 redirect("{0}".format(ROOT))
             else:
                 return rtemplate("registracija.html",
